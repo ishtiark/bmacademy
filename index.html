@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f9ff">
+  <meta name="description" content="Small-group coaching for Class 6–10 in Dhanmondi, Dhaka. Explore Brightmind Academy courses, fees and admission.">
+  <title>Brightmind Academy | Clear lessons, better marks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f9ff;
+      --surface: #fff;
+      --ink: #0f1f3d;
+      --muted: #51607c;
+      --blue: #1d4ed8;
+      --blue-d: #173ea8;
+      --tint: #e6eeff;
+      --line: #d5e0f5;
+      --primary-bg: #1d4ed8;
+      --primary-hover: #173ea8;
+      --outline-ink: #173ea8;
+      --outline-hover: #e6eeff;
+      --shadow: 0 18px 50px rgba(31, 65, 130, .09);
+      --radius: 22px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #0b1326;
+        --surface: #121d38;
+        --ink: #f1f5ff;
+        --muted: #b7c4df;
+        --blue: #6c9bff;
+        --blue-d: #173ea8;
+        --tint: #1b2b4d;
+        --line: #2b3c60;
+        --primary-bg: #173ea8;
+        --primary-hover: #2452c5;
+        --outline-ink: #dbe7ff;
+        --outline-hover: #1b2b4d;
+        --shadow: 0 18px 50px rgba(0, 0, 0, .22);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 1rem/1.6 "Figtree", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1080px, calc(100% - 2.5rem)); margin-inline: auto; }
+    .skip-link {
+      position: fixed;
+      z-index: 20;
+      top: .75rem;
+      left: .75rem;
+      padding: .7rem 1rem;
+      transform: translateY(-180%);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    :focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 {
+      font-family: "Bricolage Grotesque", sans-serif;
+      letter-spacing: -.035em;
+      line-height: 1.12;
+    }
+    h1 { max-width: 700px; margin-bottom: 1.25rem; font-size: clamp(2.6rem, 7vw, 4.5rem); }
+    h2 { margin-bottom: .85rem; font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { margin-bottom: .55rem; font-size: 1.35rem; }
+    p { color: var(--muted); }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      margin-bottom: 1rem;
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 1.4rem; height: 2px; background: currentColor; content: ""; }
+    .section { padding-block: 5rem; }
+    .section-heading { max-width: 620px; margin-bottom: 2rem; }
+    .section-heading p { max-width: 540px; margin-bottom: 0; }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .72rem 1.15rem;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--primary-bg); color: #fff; }
+    .button-primary:hover { background: var(--primary-hover); color: #fff; }
+    .button-outline {
+      border-color: var(--blue);
+      background: var(--surface);
+      color: var(--outline-ink);
+    }
+    .button-outline:hover { border-color: var(--blue); background: var(--outline-hover); color: var(--outline-ink); }
+
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(14px);
+    }
+    .header-inner { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo {
+      flex: 0 0 auto;
+      color: var(--ink);
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -.06em;
+      text-decoration: none;
+    }
+    .logo-blue { color: var(--blue); }
+    .logo-academy { font-size: .85em; font-weight: 700; letter-spacing: -.03em; }
+    .main-nav { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2rem); }
+    .main-nav a {
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .main-nav a:hover { color: var(--blue); }
+    .header-cta { min-height: 44px; padding-inline: 1rem; }
+
+    .hero { overflow: hidden; padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+    .hero-grid { display: grid; align-items: center; gap: 3.5rem; }
+    .hero-copy > p { max-width: 520px; margin-bottom: 1.6rem; font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .hero-note { display: flex; align-items: center; gap: .6rem; margin-top: 1.2rem; font-size: .88rem; }
+    .hero-note::before {
+      display: grid;
+      width: 1.35rem;
+      height: 1.35rem;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--tint);
+      color: var(--blue);
+      content: "✓";
+      font-weight: 700;
+    }
+    .notebook-wrap { display: grid; min-height: 350px; place-items: center; }
+    .notebook {
+      position: relative;
+      width: min(100%, 400px);
+      padding: 2.1rem 2rem 1.7rem 3.4rem;
+      transform: rotate(2deg);
+      border: 1px solid #cbd9f2;
+      border-radius: 6px 18px 18px 6px;
+      background-color: #fff;
+      background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 32px, #dce7fa 33px, transparent 34px);
+      box-shadow: 12px 18px 35px rgba(30, 55, 100, .15), inset 5px 0 0 #f0f4fc;
+      color: #14264a;
+    }
+    .notebook::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 2.35rem;
+      width: 2px;
+      background: #e78c91;
+      content: "";
+    }
+    .notebook .eyebrow { margin-bottom: .55rem; color: #315db5; }
+    .notebook h2 { margin-bottom: 1.2rem; font-size: 1.8rem; }
+    .batch-list { display: grid; gap: .32rem; margin: 0; padding: 0; list-style: none; }
+    .batch-list li { display: flex; justify-content: space-between; gap: .5rem; color: #344667; font-size: .94rem; font-weight: 600; }
+    .batch-list time { color: #1c3f86; font-weight: 700; white-space: nowrap; }
+
+    .courses { background: var(--surface); }
+    .course-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .course-card {
+      display: flex;
+      min-height: 300px;
+      flex-direction: column;
+      padding: 1.3rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--bg);
+    }
+    .course-level { margin-bottom: .4rem; color: var(--blue); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .course-card h3 { margin-bottom: .25rem; font-size: 1.28rem; }
+    .price { margin-bottom: .9rem; color: var(--ink); font-size: 1.25rem; font-weight: 700; }
+    .price small { color: var(--muted); font-size: .8rem; font-weight: 500; }
+    .subject-list { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.2rem; padding: 0; list-style: none; }
+    .subject-list li { padding: .25rem .55rem; border-radius: 999px; background: var(--tint); color: var(--ink); font-size: .75rem; font-weight: 600; }
+    .course-card .button { width: 100%; margin-top: auto; }
+
+    .results { background: var(--bg); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 3.5rem; }
+    .stat {
+      padding: 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+    }
+    .stat strong { display: block; margin-bottom: .25rem; color: var(--blue); font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1; }
+    .stat span { color: var(--muted); font-size: .88rem; font-weight: 600; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .quote-card { padding: 1.4rem; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+    .quote-card blockquote { margin: 0 0 1.15rem; color: var(--ink); font-size: 1rem; }
+    .quote-card figcaption { color: var(--muted); font-size: .86rem; font-weight: 600; }
+    .quote-card figcaption strong { display: block; color: var(--ink); }
+    .stars { margin-bottom: .6rem; color: #bb7200; letter-spacing: .08em; }
+    @media (prefers-color-scheme: dark) { .stars { color: #ffd166; } }
+
+    .admission { background: var(--surface); }
+    .admission-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: start; gap: 2rem; }
+    .form-card, .contact-card { padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); }
+    .form-card h3 { font-size: 1.65rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .field { display: grid; align-content: start; gap: .38rem; }
+    .field-full { grid-column: 1 / -1; }
+    label { color: var(--ink); font-size: .88rem; font-weight: 700; }
+    input, select, textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: .7rem .8rem;
+      border: 1px solid #8da1c3;
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--ink);
+    }
+    input::placeholder, textarea::placeholder { color: var(--muted); opacity: .8; }
+    textarea { min-height: 100px; resize: vertical; }
+    .field-hint { margin: 0; color: var(--muted); font-size: .8rem; }
+    .form-status { min-height: 1.5rem; margin: .9rem 0 0; color: #a32020; font-size: .9rem; font-weight: 600; }
+    @media (prefers-color-scheme: dark) { .form-status { color: #ffb4b4; } }
+    .form-status:empty { margin: 0; min-height: 0; }
+    .form-submit { width: 100%; margin-top: .6rem; }
+    .success-panel {
+      padding: 1.3rem;
+      border: 1px solid #79a987;
+      border-radius: 14px;
+      background: #edf8ef;
+      color: #153d20;
+    }
+    .success-panel h3, .success-panel p { color: #153d20; }
+    .success-panel p { margin-bottom: 0; }
+    @media (prefers-color-scheme: dark) {
+      .success-panel { border-color: #5da875; background: #173424; color: #e5ffeb; }
+      .success-panel h3, .success-panel p { color: #e5ffeb; }
+    }
+    [hidden] { display: none !important; }
+    .contact-card { display: grid; gap: 1.3rem; }
+    .contact-item { display: grid; gap: .15rem; }
+    .contact-label { color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .contact-item p { margin: 0; color: var(--ink); font-weight: 600; }
+    .contact-item a:not(.button) { color: var(--blue); font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .map-card {
+      display: grid;
+      min-height: 145px;
+      align-content: end;
+      gap: .35rem;
+      padding: 1rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, transparent 45%, rgba(108, 155, 255, .18) 45% 49%, transparent 49% 66%, rgba(108, 155, 255, .18) 66% 70%, transparent 70%),
+        radial-gradient(circle at 75% 22%, var(--blue) 0 5px, transparent 6px),
+        var(--tint);
+      text-decoration: none;
+    }
+    .map-card strong { color: var(--ink); }
+    .map-card span { color: var(--outline-ink); font-size: .87rem; font-weight: 700; }
+    .site-footer { padding-block: 1.5rem; border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .7rem; }
+    .footer-inner p { margin: 0; font-size: .85rem; }
+    .footer-inner a { color: var(--blue); font-size: .85rem; font-weight: 700; text-decoration: none; }
+    .whatsapp {
+      position: fixed;
+      z-index: 11;
+      right: max(1rem, calc((100vw - 1080px) / 2));
+      bottom: 1rem;
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: #087c48;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .18s ease, background-color .18s ease;
+    }
+    .whatsapp:hover { transform: translateY(-3px); background: #065e37; color: #fff; }
+
+    @media (min-width: 820px) {
+      .hero-grid { grid-template-columns: 1.15fr .85fr; }
+    }
+    @media (max-width: 819px) {
+      .main-nav { display: none; }
+      .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .admission-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(100% - 2rem, 1080px); }
+      .header-inner { min-height: 68px; }
+      .logo { font-size: 1.25rem; }
+      .header-cta { min-height: 42px; padding: .6rem .8rem; font-size: .88rem; }
+      .section { padding-block: 3.8rem; }
+      .hero { padding-block: 3.5rem 2.7rem; }
+      .hero-actions { align-items: stretch; }
+      .hero-actions .button { flex: 1 1 100%; }
+      .notebook-wrap { min-height: 310px; }
+      .notebook { padding: 1.7rem 1.15rem 1.4rem 2.8rem; }
+      .notebook::before { left: 1.9rem; }
+      .batch-list li { font-size: .86rem; }
+      .course-grid { grid-template-columns: 1fr; }
+      .course-card { min-height: auto; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field-full { grid-column: auto; }
+      .whatsapp { right: 1rem; bottom: 1rem; width: 54px; height: 54px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#" aria-label="Brightmind Academy home"><span>Bright</span><span class="logo-blue">mind</span> <span class="logo-academy">Academy</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#courses">Courses &amp; fees</a>
+        <a href="#results">Results</a>
+        <a href="#admission">Admission</a>
+      </nav>
+      <a class="button button-primary header-cta" href="#admission">Apply now</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Dhanmondi, Dhaka · Classes 6–10</span>
+          <h1 id="hero-title">Small batches. Clear lessons. Better marks in Class 6–10.</h1>
+          <p>Build strong subject basics with focused lessons, regular practice and teachers who know each student by name.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#admission" data-demo-link>Request demo class</a>
+            <a class="button button-outline" href="#courses">See fees</a>
+          </div>
+          <p class="hero-note">Just 15 students in each batch</p>
+        </div>
+        <div class="notebook-wrap" aria-label="This week's batch schedule">
+          <div class="notebook">
+            <span class="eyebrow">Weekly timetable</span>
+            <h2>This week's batches</h2>
+            <ul class="batch-list">
+              <li><span>Class 6–7 Foundation</span><time>Sat, Mon · 4:00 pm</time></li>
+              <li><span>Class 8 Junior</span><time>Sun, Tue · 4:30 pm</time></li>
+              <li><span>Class 9 Science</span><time>Sat, Mon · 5:30 pm</time></li>
+              <li><span>Class 10 SSC</span><time>Sun, Tue · 6:00 pm</time></li>
+              <li><span>SSC Math practice</span><time>Thu · 4:00 pm</time></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section courses" id="courses" aria-labelledby="courses-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Courses &amp; fees</span>
+          <h2 id="courses-title">Choose the right class for this term.</h2>
+          <p>Monthly fees are clear from the start. Ask us about subject coverage and current batch availability.</p>
+        </div>
+        <div class="course-grid">
+          <article class="course-card">
+            <span class="course-level">Classes 6–7</span>
+            <h3>Foundation</h3>
+            <p class="price">৳2,000 <small>/ month</small></p>
+            <ul class="subject-list"><li>Mathematics</li><li>English</li><li>Science</li></ul>
+            <button class="button button-outline choose-course" type="button" data-course="Class 6–7 Foundation">Choose this</button>
+          </article>
+          <article class="course-card">
+            <span class="course-level">Class 8</span>
+            <h3>Junior</h3>
+            <p class="price">৳2,500 <small>/ month</small></p>
+            <ul class="subject-list"><li>Mathematics</li><li>English</li><li>Science</li></ul>
+            <button class="button button-outline choose-course" type="button" data-course="Class 8 Junior">Choose this</button>
+          </article>
+          <article class="course-card">
+            <span class="course-level">Classes 9–10</span>
+            <h3>SSC</h3>
+            <p class="price">৳3,500 <small>/ month</small></p>
+            <ul class="subject-list"><li>Math</li><li>Physics</li><li>Chemistry</li><li>English</li></ul>
+            <button class="button button-outline choose-course" type="button" data-course="Class 9–10 SSC">Choose this</button>
+          </article>
+          <article class="course-card">
+            <span class="course-level">Class 10</span>
+            <h3>SSC Crash Course</h3>
+            <p class="price">৳6,000 <small>/ course</small></p>
+            <ul class="subject-list"><li>Exam revision</li><li>Mock tests</li><li>Math practice</li></ul>
+            <button class="button button-outline choose-course" type="button" data-course="SSC Crash Course">Choose this</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section results" id="results" aria-labelledby="results-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Progress that counts</span>
+          <h2 id="results-title">Good habits. Strong results.</h2>
+          <p>Small groups help us notice where a student needs more practice and give them time to ask questions.</p>
+        </div>
+        <div class="stats-grid" aria-label="Academy results and experience">
+          <div class="stat"><strong>96%</strong><span>passed with GPA 4.00+</span></div>
+          <div class="stat"><strong>48</strong><span>A+ in Math</span></div>
+          <div class="stat"><strong>15</strong><span>students per batch</span></div>
+          <div class="stat"><strong>9 years</strong><span>teaching in Dhaka</span></div>
+        </div>
+        <div class="testimonial-grid">
+          <figure class="quote-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“The teachers keep us updated and explain what my son should practise at home. His confidence has grown.”</blockquote>
+            <figcaption><strong>Farhana Rahman</strong>Parent of a Class 8 student</figcaption>
+          </figure>
+          <figure class="quote-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“I can ask questions without feeling rushed. The weekly math practice helped me improve my test scores.”</blockquote>
+            <figcaption><strong>Rafi Ahmed</strong>Class 10 student</figcaption>
+          </figure>
+          <figure class="quote-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“The lessons are easy to follow, and the short quizzes show me which topics I need to revise.”</blockquote>
+            <figcaption><strong>Nusrat Jahan</strong>Class 9 student</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section admission" id="admission" aria-labelledby="admission-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Admission</span>
+          <h2 id="admission-title">Tell us what your student needs.</h2>
+          <p>Share your details and our team will call to discuss a suitable class and demo lesson.</p>
+        </div>
+        <div class="admission-grid">
+          <div class="form-card">
+            <h3>Request a call back</h3>
+            <p>Required fields are marked with an asterisk.</p>
+            <form id="admission-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="New admission enquiry — Brightmind Academy">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="student-name">Student name *</label>
+                  <input id="student-name" name="student_name" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="student-class">Class *</label>
+                  <select id="student-class" name="class" required>
+                    <option value="">Choose a class</option>
+                    <option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="parent-phone">Parent's phone *</label>
+                  <input id="parent-phone" name="parent_phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX" required aria-describedby="phone-hint">
+                  <p class="field-hint" id="phone-hint">Enter a Bangladeshi mobile number, with or without +88.</p>
+                </div>
+                <div class="field">
+                  <label for="course">Course *</label>
+                  <select id="course" name="course" required>
+                    <option value="">Choose a course</option>
+                    <option>Class 6–7 Foundation</option>
+                    <option>Class 8 Junior</option>
+                    <option>Class 9–10 SSC</option>
+                    <option>SSC Crash Course</option>
+                  </select>
+                </div>
+                <div class="field field-full">
+                  <label for="school">School (optional)</label>
+                  <input id="school" name="school" autocomplete="organization">
+                </div>
+                <div class="field field-full">
+                  <label for="message">Message (optional)</label>
+                  <textarea id="message" name="message" placeholder="Tell us which subjects or times work for you."></textarea>
+                </div>
+                <div class="field field-full">
+                  <p class="form-status" id="form-status" role="alert" aria-live="assertive"></p>
+                  <button class="button button-primary form-submit" type="submit">Request a call back</button>
+                </div>
+              </div>
+            </form>
+            <div class="success-panel" id="success-panel" role="status" tabindex="-1" hidden></div>
+          </div>
+          <aside class="contact-card" aria-label="Contact and location">
+            <div>
+              <h3>Visit or call us</h3>
+              <p>We are happy to answer questions about classes and fees.</p>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Address</span>
+              <p>House 12, Road 5<br>Dhanmondi, Dhaka 1205</p>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Phone</span>
+              <a href="tel:+8801700000000">+880 1700-000000</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Office hours</span>
+              <p>Saturday–Thursday, 10:00 am–7:00 pm</p>
+            </div>
+            <a class="map-card" href="https://www.google.com/maps/search/?api=1&amp;query=House+12%2C+Road+5%2C+Dhanmondi%2C+Dhaka+1205" target="_blank" rel="noopener noreferrer">
+              <strong>Find Brightmind Academy</strong>
+              <span>Open the address in Google Maps ↗</span>
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="logo" href="#" aria-label="Brightmind Academy home"><span>Bright</span><span class="logo-blue">mind</span> <span class="logo-academy">Academy</span></a>
+      <p>Clear lessons for growing minds in Dhanmondi, Dhaka.</p>
+      <a href="#admission">Ask about a class</a>
+    </div>
+  </footer>
+  <a class="whatsapp" href="https://wa.me/8801700000000" target="_blank" rel="noopener noreferrer" aria-label="Chat with Brightmind Academy on WhatsApp">WA</a>
+
+  <script>
+    (() => {
+      const form = document.getElementById("admission-form");
+      const status = document.getElementById("form-status");
+      const successPanel = document.getElementById("success-panel");
+      const phonePattern = /^(\+?88)?01[3-9]\d{8}$/;
+      const courseSelect = document.getElementById("course");
+
+      document.querySelectorAll(".choose-course").forEach((button) => {
+        button.addEventListener("click", () => {
+          courseSelect.value = button.dataset.course;
+          document.getElementById("admission").scrollIntoView({ behavior: "smooth" });
+          courseSelect.focus({ preventScroll: true });
+        });
+      });
+
+      document.querySelector("[data-demo-link]").addEventListener("click", () => {
+        document.getElementById("message").value = "I would like to request a free demo class.";
+      });
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        status.textContent = "";
+
+        const name = document.getElementById("student-name").value.trim();
+        const studentClass = document.getElementById("student-class").value;
+        const phone = document.getElementById("parent-phone").value.trim();
+        const course = courseSelect.value;
+
+        if (!name || !studentClass || !course || !phone) {
+          status.textContent = "Please enter the student name, class, parent's phone number and course.";
+          return;
+        }
+        if (!phonePattern.test(phone)) {
+          status.textContent = "Enter a valid Bangladeshi mobile number, such as 01712345678 or +8801712345678.";
+          document.getElementById("parent-phone").focus();
+          return;
+        }
+
+        const submitButton = form.querySelector('[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending request…";
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" }
+          });
+          if (!response.ok) {
+            throw new Error("The admission request could not be sent.");
+          }
+          form.hidden = true;
+          successPanel.innerHTML = "";
+          const heading = document.createElement("h3");
+          heading.textContent = "Thank you. Your request is on its way.";
+          const confirmation = document.createElement("p");
+          confirmation.textContent = `We will call ${phone} about ${name}'s ${course} course.`;
+          successPanel.append(heading, confirmation);
+          successPanel.hidden = false;
+          successPanel.focus();
+        } catch (error) {
+          status.textContent = "We could not send your request right now. Please try again or call us at +880 1700-000000.";
+        } finally {
+          if (!form.hidden) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Request a call back";
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
