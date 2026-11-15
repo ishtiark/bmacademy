@@ -1,645 +1,393 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f9ff">
-  <meta name="description" content="Small-group coaching for Class 6–10 in Dhanmondi, Dhaka. Explore Brightmind Academy courses, fees and admission.">
-  <title>Brightmind Academy | Clear lessons, better marks</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f6f9ff;
-      --surface: #fff;
-      --ink: #0f1f3d;
-      --muted: #51607c;
-      --blue: #1d4ed8;
-      --blue-d: #173ea8;
-      --tint: #e6eeff;
-      --line: #d5e0f5;
-      --primary-bg: #1d4ed8;
-      --primary-hover: #173ea8;
-      --outline-ink: #173ea8;
-      --outline-hover: #e6eeff;
-      --shadow: 0 18px 50px rgba(31, 65, 130, .09);
-      --radius: 22px;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brightmind Academy | Show your working</title>
+<meta name="description" content="Brightmind Academy teaches high school students to understand, not memorise. Small classes, written learning plans and monthly progress notes for guardians.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%237EC3EC'/><path d='M28 55l16 16 30-36' fill='none' stroke='%23C79A3B' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FDFEFF;--grid:#DCEEF9;--sky:#7EC3EC;--sky-2:#E8F4FC;--blue:#1B73B3;--ink:#0E2A47;--ink-2:#143A5E;--muted:#4F677C;
+  --gold:#C79A3B;--gold-2:#F7EBCB;
+  --serif:'Fraunces',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;--hand:'Caveat','Segoe Script',cursive;
+  --pad:clamp(20px,5vw,72px);--sec:clamp(80px,11vw,150px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font:400 1.05rem/1.65 var(--sans);color:var(--ink);background:var(--paper);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+section{padding:var(--sec) 0}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.025em;line-height:1.04}
+h2{font-size:clamp(2.2rem,5.2vw,4rem)}
+p{color:var(--muted)}
+.gridbg{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:36px 36px}
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        color-scheme: dark;
-        --bg: #0b1326;
-        --surface: #121d38;
-        --ink: #f1f5ff;
-        --muted: #b7c4df;
-        --blue: #6c9bff;
-        --blue-d: #173ea8;
-        --tint: #1b2b4d;
-        --line: #2b3c60;
-        --primary-bg: #173ea8;
-        --primary-hover: #2452c5;
-        --outline-ink: #dbe7ff;
-        --outline-hover: #1b2b4d;
-        --shadow: 0 18px 50px rgba(0, 0, 0, .22);
-      }
-    }
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:99px;border:0;cursor:pointer;font:600 1rem var(--sans);text-decoration:none;transition:transform .2s,background .2s,box-shadow .2s}
+.btn-ink{background:var(--ink);color:#fff;box-shadow:0 10px 24px -10px rgba(14,42,71,.7)}
+.btn-ink:hover{background:var(--blue);transform:translateY(-2px)}
+.btn-line{box-shadow:inset 0 0 0 2px var(--ink);color:var(--ink);background:transparent}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#D8AD52;transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font: 400 1rem/1.6 "Figtree", sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; }
-    button, input, select, textarea { font: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    .container { width: min(1080px, calc(100% - 2.5rem)); margin-inline: auto; }
-    .skip-link {
-      position: fixed;
-      z-index: 20;
-      top: .75rem;
-      left: .75rem;
-      padding: .7rem 1rem;
-      transform: translateY(-180%);
-      border-radius: 8px;
-      background: var(--surface);
-      color: var(--ink);
-      font-weight: 700;
-    }
-    .skip-link:focus { transform: translateY(0); }
-    :focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+header.scrolled,header.menu{background:rgba(253,254,255,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--grid)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font:500 1.35rem var(--serif);letter-spacing:-.02em;text-decoration:none}
+.nav ul{display:flex;align-items:center;gap:34px;list-style:none;padding:0}
+.nav ul a:not(.btn){text-decoration:none;font-weight:500}
+.nav ul a:not(.btn):hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:6px}
+.nav .btn{min-height:44px;padding:0 22px}
+.burger{display:none;width:48px;height:48px;border:0;background:none;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px auto;transition:.25s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-    h1, h2, h3, p { margin-top: 0; }
-    h1, h2, h3 {
-      font-family: "Bricolage Grotesque", sans-serif;
-      letter-spacing: -.035em;
-      line-height: 1.12;
-    }
-    h1 { max-width: 700px; margin-bottom: 1.25rem; font-size: clamp(2.6rem, 7vw, 4.5rem); }
-    h2 { margin-bottom: .85rem; font-size: clamp(2rem, 4vw, 3rem); }
-    h3 { margin-bottom: .55rem; font-size: 1.35rem; }
-    p { color: var(--muted); }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      margin-bottom: 1rem;
-      color: var(--blue);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .eyebrow::before { width: 1.4rem; height: 2px; background: currentColor; content: ""; }
-    .section { padding-block: 5rem; }
-    .section-heading { max-width: 620px; margin-bottom: 2rem; }
-    .section-heading p { max-width: 540px; margin-bottom: 0; }
+/* hero */
+.hero{padding:clamp(120px,14vw,170px) 0 clamp(60px,8vw,110px);background-color:var(--paper)}
+.hero .gridbg{position:absolute;inset:0;-webkit-mask-image:linear-gradient(180deg,#000 40%,transparent);mask-image:linear-gradient(180deg,#000 40%,transparent);z-index:0}
+.hero{position:relative}
+.hero-in{position:relative;z-index:1;display:grid;gap:56px;align-items:center}
+.hero h1{font-size:clamp(3rem,8.4vw,6.6rem);font-weight:500}
+.ul{position:relative;display:inline-block;white-space:nowrap}
+.ul svg{position:absolute;left:-2%;bottom:-.2em;width:104%;height:.38em;overflow:visible}
+.ul path{fill:none;stroke:var(--gold);stroke-width:5;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1.1s .5s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero p.lead{font-size:clamp(1.1rem,1.7vw,1.3rem);max-width:44ch;margin:30px 0 38px;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.proof{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:48px;padding-top:24px;border-top:1px solid var(--grid);font-weight:500;font-size:.98rem}
+.proof span{display:flex;align-items:center;gap:10px}
+.proof i{width:9px;height:9px;border-radius:50%;background:var(--gold)}
 
-    .button {
-      display: inline-flex;
-      min-height: 48px;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      padding: .72rem 1.15rem;
-      border: 2px solid transparent;
-      border-radius: 12px;
-      font-weight: 700;
-      line-height: 1.2;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
-    }
-    .button:hover { transform: translateY(-2px); }
-    .button-primary { background: var(--primary-bg); color: #fff; }
-    .button-primary:hover { background: var(--primary-hover); color: #fff; }
-    .button-outline {
-      border-color: var(--blue);
-      background: var(--surface);
-      color: var(--outline-ink);
-    }
-    .button-outline:hover { border-color: var(--blue); background: var(--outline-hover); color: var(--outline-ink); }
+.page{position:relative;background:#fff;border-radius:6px;padding:34px 30px 30px 62px;transform:rotate(2.2deg);box-shadow:0 2px 0 var(--grid),0 40px 70px -30px rgba(14,42,71,.4);
+  background-image:repeating-linear-gradient(transparent 0 35px,var(--grid) 35px 36px);max-width:470px;margin:0 auto;width:100%}
+.page::before{content:"";position:absolute;left:44px;top:0;bottom:0;width:2px;background:#F2B8B8}
+.page::after{content:"";position:absolute;left:50%;top:-14px;width:110px;height:30px;background:var(--gold-2);opacity:.9;transform:translateX(-50%) rotate(-3deg);box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.page .q{font:500 .95rem var(--sans);color:var(--blue);line-height:36px}
+.ln{font:500 1.5rem/36px var(--serif);color:var(--ink);display:flex;justify-content:space-between;gap:12px;opacity:0;animation:write .6s forwards}
+.ln small{font:600 1.15rem var(--hand);color:var(--blue);letter-spacing:.01em}
+.ln:nth-of-type(2){animation-delay:1s}.ln:nth-of-type(3){animation-delay:1.7s}.ln:nth-of-type(4){animation-delay:2.4s}.ln:nth-of-type(5){animation-delay:3.1s}
+@keyframes write{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+.ln.ok{color:var(--ink)}.ln .tick{color:var(--gold)}
+.note{position:absolute;right:-8px;bottom:-34px;max-width:240px;font:600 1.5rem/1.15 var(--hand);color:var(--gold);background:#fff;border:2px solid var(--gold);border-radius:14px 14px 2px 14px;padding:12px 16px;transform:rotate(-3deg);opacity:0;animation:write .6s 3.9s forwards;box-shadow:0 14px 30px -14px rgba(199,154,59,.7)}
 
-    .site-header {
-      position: sticky;
-      z-index: 10;
-      top: 0;
-      border-bottom: 1px solid var(--line);
-      background: color-mix(in srgb, var(--bg) 92%, transparent);
-      backdrop-filter: blur(14px);
-    }
-    .header-inner { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 1rem; }
-    .logo {
-      flex: 0 0 auto;
-      color: var(--ink);
-      font-family: "Bricolage Grotesque", sans-serif;
-      font-size: 1.45rem;
-      font-weight: 800;
-      letter-spacing: -.06em;
-      text-decoration: none;
-    }
-    .logo-blue { color: var(--blue); }
-    .logo-academy { font-size: .85em; font-weight: 700; letter-spacing: -.03em; }
-    .main-nav { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2rem); }
-    .main-nav a {
-      color: var(--muted);
-      font-size: .92rem;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .main-nav a:hover { color: var(--blue); }
-    .header-cta { min-height: 44px; padding-inline: 1rem; }
+/* courses */
+.courses{padding-top:calc(var(--sec)*.6)}
+.head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
+.head h2{max-width:15ch}.head p{max-width:50ch}
+.rows{border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center;padding:30px 12px;border-bottom:1px solid var(--grid);text-decoration:none;position:relative;transition:background .3s,padding .3s}
+.row h3{font-size:clamp(1.7rem,3.6vw,2.7rem)}
+.row p{grid-column:1;max-width:56ch;font-size:1rem}
+.row .meta{font-weight:600;color:var(--blue);font-size:.95rem}
+.go{grid-row:1/4;grid-column:2;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;transition:.3s}
+.go svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:.3s}
+.row:hover{background:var(--sky-2);padding-left:28px}
+.row:hover .go{background:var(--gold);border-color:var(--gold);transform:rotate(-45deg)}
 
-    .hero { overflow: hidden; padding-block: clamp(3.5rem, 8vw, 6.5rem); }
-    .hero-grid { display: grid; align-items: center; gap: 3.5rem; }
-    .hero-copy > p { max-width: 520px; margin-bottom: 1.6rem; font-size: 1.08rem; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
-    .hero-note { display: flex; align-items: center; gap: .6rem; margin-top: 1.2rem; font-size: .88rem; }
-    .hero-note::before {
-      display: grid;
-      width: 1.35rem;
-      height: 1.35rem;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--tint);
-      color: var(--blue);
-      content: "✓";
-      font-weight: 700;
-    }
-    .notebook-wrap { display: grid; min-height: 350px; place-items: center; }
-    .notebook {
-      position: relative;
-      width: min(100%, 400px);
-      padding: 2.1rem 2rem 1.7rem 3.4rem;
-      transform: rotate(2deg);
-      border: 1px solid #cbd9f2;
-      border-radius: 6px 18px 18px 6px;
-      background-color: #fff;
-      background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 32px, #dce7fa 33px, transparent 34px);
-      box-shadow: 12px 18px 35px rgba(30, 55, 100, .15), inset 5px 0 0 #f0f4fc;
-      color: #14264a;
-    }
-    .notebook::before {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 2.35rem;
-      width: 2px;
-      background: #e78c91;
-      content: "";
-    }
-    .notebook .eyebrow { margin-bottom: .55rem; color: #315db5; }
-    .notebook h2 { margin-bottom: 1.2rem; font-size: 1.8rem; }
-    .batch-list { display: grid; gap: .32rem; margin: 0; padding: 0; list-style: none; }
-    .batch-list li { display: flex; justify-content: space-between; gap: .5rem; color: #344667; font-size: .94rem; font-weight: 600; }
-    .batch-list time { color: #1c3f86; font-weight: 700; white-space: nowrap; }
+/* path */
+.path{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.path .gridbg{position:absolute;inset:0;opacity:.07;filter:invert(1)}
+.path-in{position:relative;display:grid;gap:56px}
+.path h2{color:#fff}.path p{color:#B5CBDE}
+.path .intro p{margin-top:20px;max-width:38ch}
+.steps{position:relative;padding-left:72px;display:grid;gap:56px}
+.rail{position:absolute;left:23px;top:8px;bottom:8px;width:3px;background:rgba(255,255,255,.14);border-radius:3px}
+.rail i{position:absolute;left:0;top:0;width:100%;height:0;background:var(--gold);border-radius:3px}
+.step{position:relative;opacity:.45;transition:opacity .5s}
+.step::before{content:attr(data-n);position:absolute;left:-72px;top:0;width:48px;height:48px;border-radius:50%;border:2px solid rgba(255,255,255,.3);background:var(--ink);display:grid;place-items:center;font:500 1.2rem var(--serif);transition:.4s}
+.step.on{opacity:1}
+.step.on::before{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.step h3{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:10px}
+.step p{max-width:50ch}
+.step .when{display:inline-block;margin-top:14px;font:600 1.3rem var(--hand);color:var(--gold)}
 
-    .courses { background: var(--surface); }
-    .course-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
-    .course-card {
-      display: flex;
-      min-height: 300px;
-      flex-direction: column;
-      padding: 1.3rem;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--bg);
-    }
-    .course-level { margin-bottom: .4rem; color: var(--blue); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-    .course-card h3 { margin-bottom: .25rem; font-size: 1.28rem; }
-    .price { margin-bottom: .9rem; color: var(--ink); font-size: 1.25rem; font-weight: 700; }
-    .price small { color: var(--muted); font-size: .8rem; font-weight: 500; }
-    .subject-list { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.2rem; padding: 0; list-style: none; }
-    .subject-list li { padding: .25rem .55rem; border-radius: 999px; background: var(--tint); color: var(--ink); font-size: .75rem; font-weight: 600; }
-    .course-card .button { width: 100%; margin-top: auto; }
+/* achievements */
+.ach-in{display:grid;gap:56px}
+.big{position:relative}
+.big .num{font:500 clamp(6rem,20vw,13rem)/.85 var(--serif);letter-spacing:-.06em;color:var(--ink)}
+.big .num sup{font-size:.4em;color:var(--gold);vertical-align:top;letter-spacing:0}
+.big p{margin:14px 0 30px;max-width:30ch;font-size:1.15rem;color:var(--ink)}
+.bars{display:grid;gap:14px;max-width:440px}
+.bar{font-size:.9rem;font-weight:500}
+.bar div{height:16px;border-radius:99px;background:var(--sky-2);margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--sky);transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.bar.after i{background:var(--gold)}
+.bars.in .b1{width:58%}.bars.in .b2{width:86%}
+.bars small{color:var(--muted)}
+.facts{display:grid;gap:0;align-content:start}
+.fact{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:26px 0;border-bottom:1px solid var(--grid)}
+.fact:first-child{border-top:2px solid var(--ink)}
+.fact b{font:500 clamp(2.6rem,6vw,4.2rem)/1 var(--serif);letter-spacing:-.03em;white-space:nowrap}
+.fact b em{font-style:normal;color:var(--gold)}
+.fact span{max-width:20ch;text-align:right;color:var(--muted);font-weight:500}
+.awards{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.awards li{list-style:none;padding:10px 18px;border-radius:99px;background:var(--gold-2);font-weight:600;font-size:.92rem;color:var(--ink)}
+.awards{padding:0}
 
-    .results { background: var(--bg); }
-    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 3.5rem; }
-    .stat {
-      padding: 1.25rem;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--surface);
-    }
-    .stat strong { display: block; margin-bottom: .25rem; color: var(--blue); font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1; }
-    .stat span { color: var(--muted); font-size: .88rem; font-weight: 600; }
-    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .quote-card { padding: 1.4rem; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
-    .quote-card blockquote { margin: 0 0 1.15rem; color: var(--ink); font-size: 1rem; }
-    .quote-card figcaption { color: var(--muted); font-size: .86rem; font-weight: 600; }
-    .quote-card figcaption strong { display: block; color: var(--ink); }
-    .stars { margin-bottom: .6rem; color: #bb7200; letter-spacing: .08em; }
-    @media (prefers-color-scheme: dark) { .stars { color: #ffd166; } }
+/* reviews */
+.reviews{background:var(--sky-2)}
+.rev-in{display:grid;gap:40px}
+.stage{position:relative;min-height:290px}
+.stage::before{content:"“";position:absolute;left:-6px;top:-70px;font:500 11rem/1 var(--serif);color:var(--gold);opacity:.9}
+.stage blockquote{font:400 clamp(1.7rem,3.8vw,3rem)/1.25 var(--serif);letter-spacing:-.02em;color:var(--ink);padding-top:70px;max-width:26ch}
+.stage figure[hidden]{display:none}
+.stage figure{animation:fade .6s}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}}
+.stage figcaption{margin-top:26px;font-weight:600}.stage figcaption span{display:block;font-weight:400;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:10px}
+.tabs button{min-height:48px;padding:0 22px;border-radius:99px;border:2px solid var(--ink);background:transparent;font:600 .95rem var(--sans);color:var(--ink);cursor:pointer;transition:.2s}
+.tabs button:hover{background:#fff}
+.tabs button[aria-pressed=true]{background:var(--ink);color:#fff}
 
-    .admission { background: var(--surface); }
-    .admission-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: start; gap: 2rem; }
-    .form-card, .contact-card { padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); }
-    .form-card h3 { font-size: 1.65rem; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .field { display: grid; align-content: start; gap: .38rem; }
-    .field-full { grid-column: 1 / -1; }
-    label { color: var(--ink); font-size: .88rem; font-weight: 700; }
-    input, select, textarea {
-      width: 100%;
-      min-height: 48px;
-      padding: .7rem .8rem;
-      border: 1px solid #8da1c3;
-      border-radius: 10px;
-      background: var(--surface);
-      color: var(--ink);
-    }
-    input::placeholder, textarea::placeholder { color: var(--muted); opacity: .8; }
-    textarea { min-height: 100px; resize: vertical; }
-    .field-hint { margin: 0; color: var(--muted); font-size: .8rem; }
-    .form-status { min-height: 1.5rem; margin: .9rem 0 0; color: #a32020; font-size: .9rem; font-weight: 600; }
-    @media (prefers-color-scheme: dark) { .form-status { color: #ffb4b4; } }
-    .form-status:empty { margin: 0; min-height: 0; }
-    .form-submit { width: 100%; margin-top: .6rem; }
-    .success-panel {
-      padding: 1.3rem;
-      border: 1px solid #79a987;
-      border-radius: 14px;
-      background: #edf8ef;
-      color: #153d20;
-    }
-    .success-panel h3, .success-panel p { color: #153d20; }
-    .success-panel p { margin-bottom: 0; }
-    @media (prefers-color-scheme: dark) {
-      .success-panel { border-color: #5da875; background: #173424; color: #e5ffeb; }
-      .success-panel h3, .success-panel p { color: #e5ffeb; }
-    }
-    [hidden] { display: none !important; }
-    .contact-card { display: grid; gap: 1.3rem; }
-    .contact-item { display: grid; gap: .15rem; }
-    .contact-label { color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-    .contact-item p { margin: 0; color: var(--ink); font-weight: 600; }
-    .contact-item a:not(.button) { color: var(--blue); font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    .map-card {
-      display: grid;
-      min-height: 145px;
-      align-content: end;
-      gap: .35rem;
-      padding: 1rem;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background:
-        linear-gradient(135deg, transparent 45%, rgba(108, 155, 255, .18) 45% 49%, transparent 49% 66%, rgba(108, 155, 255, .18) 66% 70%, transparent 70%),
-        radial-gradient(circle at 75% 22%, var(--blue) 0 5px, transparent 6px),
-        var(--tint);
-      text-decoration: none;
-    }
-    .map-card strong { color: var(--ink); }
-    .map-card span { color: var(--outline-ink); font-size: .87rem; font-weight: 700; }
-    .site-footer { padding-block: 1.5rem; border-top: 1px solid var(--line); }
-    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .7rem; }
-    .footer-inner p { margin: 0; font-size: .85rem; }
-    .footer-inner a { color: var(--blue); font-size: .85rem; font-weight: 700; text-decoration: none; }
-    .whatsapp {
-      position: fixed;
-      z-index: 11;
-      right: max(1rem, calc((100vw - 1080px) / 2));
-      bottom: 1rem;
-      display: grid;
-      width: 58px;
-      height: 58px;
-      place-items: center;
-      border: 2px solid #fff;
-      border-radius: 50%;
-      background: #087c48;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
-      color: #fff;
-      font-size: .82rem;
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform .18s ease, background-color .18s ease;
-    }
-    .whatsapp:hover { transform: translateY(-3px); background: #065e37; color: #fff; }
+/* join */
+.join-in{display:grid;gap:48px;align-items:center}
+.join h2{max-width:13ch}
+.join .l p{margin-top:20px;max-width:38ch}
+.card{background:#fff;border-radius:24px;padding:clamp(26px,4vw,44px);box-shadow:0 2px 0 var(--grid),0 40px 70px -40px rgba(14,42,71,.45);border:2px solid var(--ink)}
+.card h3{font-size:1.7rem;margin-bottom:22px}
+.fld{display:grid;gap:6px;margin-bottom:16px;font-weight:600;font-size:.92rem}
+.fld input,.fld select{min-height:52px;border:2px solid var(--grid);border-radius:12px;padding:0 16px;font:500 1rem var(--sans);color:var(--ink);background:#fff;width:100%}
+.fld input:focus,.fld select:focus{border-color:var(--blue);outline:none}
+.card .btn{width:100%;margin-top:6px}
+.msg{min-height:1.6em;margin-top:14px;font-weight:600;color:var(--blue)}
+.msg.err{color:#B3261E}
 
-    @media (min-width: 820px) {
-      .hero-grid { grid-template-columns: 1.15fr .85fr; }
-    }
-    @media (max-width: 819px) {
-      .main-nav { display: none; }
-      .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .admission-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 600px) {
-      .container { width: min(100% - 2rem, 1080px); }
-      .header-inner { min-height: 68px; }
-      .logo { font-size: 1.25rem; }
-      .header-cta { min-height: 42px; padding: .6rem .8rem; font-size: .88rem; }
-      .section { padding-block: 3.8rem; }
-      .hero { padding-block: 3.5rem 2.7rem; }
-      .hero-actions { align-items: stretch; }
-      .hero-actions .button { flex: 1 1 100%; }
-      .notebook-wrap { min-height: 310px; }
-      .notebook { padding: 1.7rem 1.15rem 1.4rem 2.8rem; }
-      .notebook::before { left: 1.9rem; }
-      .batch-list li { font-size: .86rem; }
-      .course-grid { grid-template-columns: 1fr; }
-      .course-card { min-height: auto; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonial-grid { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .field-full { grid-column: auto; }
-      .whatsapp { right: 1rem; bottom: 1rem; width: 54px; height: 54px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-      }
-    }
-  </style>
+footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
+.foot{display:flex;flex-wrap:wrap;gap:24px 40px;justify-content:space-between;align-items:center}
+.foot .logo{color:#fff}
+.foot nav{display:flex;gap:26px;flex-wrap:wrap}
+.foot a{text-decoration:none}.foot nav a:hover{color:#fff}
+
+@media(max-width:860px){
+  .burger{display:block}
+  .nav ul{position:fixed;inset:72px 0 auto;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);padding:6px var(--pad) 28px;border-bottom:1px solid var(--grid);transform:translateY(-140%);transition:transform .35s;z-index:-1}
+  .nav ul.open{transform:none}
+  .nav ul a:not(.btn){display:block;padding:16px 0;border-bottom:1px solid var(--grid);font-size:1.15rem}
+  .nav ul .btn{margin-top:18px}
+  .note{right:6px}.page{padding-left:54px}.page::before{left:38px}
+  .row p{grid-column:1/-1}.go{grid-row:1;width:46px;height:46px}
+}
+@media(min-width:861px){
+  .hero-in{grid-template-columns:1.25fr .75fr}
+  .path-in{grid-template-columns:.8fr 1.2fr}.path .intro{position:sticky;top:120px;align-self:start}
+  .ach-in{grid-template-columns:1fr 1fr;align-items:start;gap:90px}
+  .rev-in{grid-template-columns:1fr}
+  .join-in{grid-template-columns:1fr 1fr;gap:90px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .ln,.note{opacity:1}.ul path{stroke-dashoffset:0}.step{opacity:1}.bars .b1{width:58%}.bars .b2{width:86%}
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="#" aria-label="Brightmind Academy home"><span>Bright</span><span class="logo-blue">mind</span> <span class="logo-academy">Academy</span></a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#courses">Courses &amp; fees</a>
-        <a href="#results">Results</a>
-        <a href="#admission">Admission</a>
-      </nav>
-      <a class="button button-primary header-cta" href="#admission">Apply now</a>
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Brightmind Academy, home">
+      <svg width="34" height="34" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#7EC3EC"/><path d="M27 54l17 17 31-37" fill="none" stroke="#C79A3B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Brightmind
+    </a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul id="menu">
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#path">Learning path</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a class="btn btn-ink" href="#join">Book a trial class</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="gridbg" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div>
+      <h1>Learn it. Then <span class="ul">show your working.<svg viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12 C70 3 150 17 220 9 S350 5 396 11"/></svg></span></h1>
+      <p class="lead">Brightmind Academy is a learning center for high school students. We teach the reasoning behind every answer, so grades improve and stay improved.</p>
+      <div class="cta">
+        <a class="btn btn-ink" href="#path">See how we teach</a>
+        <a class="btn btn-line" href="#join">Book a trial class</a>
+      </div>
+      <div class="proof">
+        <span><i></i>Classes of 8 or fewer</span>
+        <span><i></i>Written plan for every student</span>
+        <span><i></i>Monthly note to guardians</span>
+      </div>
     </div>
-  </header>
-
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Dhanmondi, Dhaka · Classes 6–10</span>
-          <h1 id="hero-title">Small batches. Clear lessons. Better marks in Class 6–10.</h1>
-          <p>Build strong subject basics with focused lessons, regular practice and teachers who know each student by name.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#admission" data-demo-link>Request demo class</a>
-            <a class="button button-outline" href="#courses">See fees</a>
-          </div>
-          <p class="hero-note">Just 15 students in each batch</p>
-        </div>
-        <div class="notebook-wrap" aria-label="This week's batch schedule">
-          <div class="notebook">
-            <span class="eyebrow">Weekly timetable</span>
-            <h2>This week's batches</h2>
-            <ul class="batch-list">
-              <li><span>Class 6–7 Foundation</span><time>Sat, Mon · 4:00 pm</time></li>
-              <li><span>Class 8 Junior</span><time>Sun, Tue · 4:30 pm</time></li>
-              <li><span>Class 9 Science</span><time>Sat, Mon · 5:30 pm</time></li>
-              <li><span>Class 10 SSC</span><time>Sun, Tue · 6:00 pm</time></li>
-              <li><span>SSC Math practice</span><time>Thu · 4:00 pm</time></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section courses" id="courses" aria-labelledby="courses-title">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Courses &amp; fees</span>
-          <h2 id="courses-title">Choose the right class for this term.</h2>
-          <p>Monthly fees are clear from the start. Ask us about subject coverage and current batch availability.</p>
-        </div>
-        <div class="course-grid">
-          <article class="course-card">
-            <span class="course-level">Classes 6–7</span>
-            <h3>Foundation</h3>
-            <p class="price">৳2,000 <small>/ month</small></p>
-            <ul class="subject-list"><li>Mathematics</li><li>English</li><li>Science</li></ul>
-            <button class="button button-outline choose-course" type="button" data-course="Class 6–7 Foundation">Choose this</button>
-          </article>
-          <article class="course-card">
-            <span class="course-level">Class 8</span>
-            <h3>Junior</h3>
-            <p class="price">৳2,500 <small>/ month</small></p>
-            <ul class="subject-list"><li>Mathematics</li><li>English</li><li>Science</li></ul>
-            <button class="button button-outline choose-course" type="button" data-course="Class 8 Junior">Choose this</button>
-          </article>
-          <article class="course-card">
-            <span class="course-level">Classes 9–10</span>
-            <h3>SSC</h3>
-            <p class="price">৳3,500 <small>/ month</small></p>
-            <ul class="subject-list"><li>Math</li><li>Physics</li><li>Chemistry</li><li>English</li></ul>
-            <button class="button button-outline choose-course" type="button" data-course="Class 9–10 SSC">Choose this</button>
-          </article>
-          <article class="course-card">
-            <span class="course-level">Class 10</span>
-            <h3>SSC Crash Course</h3>
-            <p class="price">৳6,000 <small>/ course</small></p>
-            <ul class="subject-list"><li>Exam revision</li><li>Mock tests</li><li>Math practice</li></ul>
-            <button class="button button-outline choose-course" type="button" data-course="SSC Crash Course">Choose this</button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section results" id="results" aria-labelledby="results-title">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Progress that counts</span>
-          <h2 id="results-title">Good habits. Strong results.</h2>
-          <p>Small groups help us notice where a student needs more practice and give them time to ask questions.</p>
-        </div>
-        <div class="stats-grid" aria-label="Academy results and experience">
-          <div class="stat"><strong>96%</strong><span>passed with GPA 4.00+</span></div>
-          <div class="stat"><strong>48</strong><span>A+ in Math</span></div>
-          <div class="stat"><strong>15</strong><span>students per batch</span></div>
-          <div class="stat"><strong>9 years</strong><span>teaching in Dhaka</span></div>
-        </div>
-        <div class="testimonial-grid">
-          <figure class="quote-card">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>“The teachers keep us updated and explain what my son should practise at home. His confidence has grown.”</blockquote>
-            <figcaption><strong>Farhana Rahman</strong>Parent of a Class 8 student</figcaption>
-          </figure>
-          <figure class="quote-card">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>“I can ask questions without feeling rushed. The weekly math practice helped me improve my test scores.”</blockquote>
-            <figcaption><strong>Rafi Ahmed</strong>Class 10 student</figcaption>
-          </figure>
-          <figure class="quote-card">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>“The lessons are easy to follow, and the short quizzes show me which topics I need to revise.”</blockquote>
-            <figcaption><strong>Nusrat Jahan</strong>Class 9 student</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section admission" id="admission" aria-labelledby="admission-title">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Admission</span>
-          <h2 id="admission-title">Tell us what your student needs.</h2>
-          <p>Share your details and our team will call to discuss a suitable class and demo lesson.</p>
-        </div>
-        <div class="admission-grid">
-          <div class="form-card">
-            <h3>Request a call back</h3>
-            <p>Required fields are marked with an asterisk.</p>
-            <form id="admission-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" novalidate>
-              <input type="hidden" name="_subject" value="New admission enquiry — Brightmind Academy">
-              <div class="form-grid">
-                <div class="field">
-                  <label for="student-name">Student name *</label>
-                  <input id="student-name" name="student_name" autocomplete="name" required>
-                </div>
-                <div class="field">
-                  <label for="student-class">Class *</label>
-                  <select id="student-class" name="class" required>
-                    <option value="">Choose a class</option>
-                    <option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="parent-phone">Parent's phone *</label>
-                  <input id="parent-phone" name="parent_phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX" required aria-describedby="phone-hint">
-                  <p class="field-hint" id="phone-hint">Enter a Bangladeshi mobile number, with or without +88.</p>
-                </div>
-                <div class="field">
-                  <label for="course">Course *</label>
-                  <select id="course" name="course" required>
-                    <option value="">Choose a course</option>
-                    <option>Class 6–7 Foundation</option>
-                    <option>Class 8 Junior</option>
-                    <option>Class 9–10 SSC</option>
-                    <option>SSC Crash Course</option>
-                  </select>
-                </div>
-                <div class="field field-full">
-                  <label for="school">School (optional)</label>
-                  <input id="school" name="school" autocomplete="organization">
-                </div>
-                <div class="field field-full">
-                  <label for="message">Message (optional)</label>
-                  <textarea id="message" name="message" placeholder="Tell us which subjects or times work for you."></textarea>
-                </div>
-                <div class="field field-full">
-                  <p class="form-status" id="form-status" role="alert" aria-live="assertive"></p>
-                  <button class="button button-primary form-submit" type="submit">Request a call back</button>
-                </div>
-              </div>
-            </form>
-            <div class="success-panel" id="success-panel" role="status" tabindex="-1" hidden></div>
-          </div>
-          <aside class="contact-card" aria-label="Contact and location">
-            <div>
-              <h3>Visit or call us</h3>
-              <p>We are happy to answer questions about classes and fees.</p>
-            </div>
-            <div class="contact-item">
-              <span class="contact-label">Address</span>
-              <p>House 12, Road 5<br>Dhanmondi, Dhaka 1205</p>
-            </div>
-            <div class="contact-item">
-              <span class="contact-label">Phone</span>
-              <a href="tel:+8801700000000">+880 1700-000000</a>
-            </div>
-            <div class="contact-item">
-              <span class="contact-label">Office hours</span>
-              <p>Saturday–Thursday, 10:00 am–7:00 pm</p>
-            </div>
-            <a class="map-card" href="https://www.google.com/maps/search/?api=1&amp;query=House+12%2C+Road+5%2C+Dhanmondi%2C+Dhaka+1205" target="_blank" rel="noopener noreferrer">
-              <strong>Find Brightmind Academy</strong>
-              <span>Open the address in Google Maps ↗</span>
-            </a>
-          </aside>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="logo" href="#" aria-label="Brightmind Academy home"><span>Bright</span><span class="logo-blue">mind</span> <span class="logo-academy">Academy</span></a>
-      <p>Clear lessons for growing minds in Dhanmondi, Dhaka.</p>
-      <a href="#admission">Ask about a class</a>
+    <div class="page" role="img" aria-label="A student's notebook page with a solved equation and a teacher's note">
+      <div class="q">Solve: 3x + 7 = 22</div>
+      <div class="ln">3x = 22 − 7 <small>take 7 from both sides</small></div>
+      <div class="ln">3x = 15</div>
+      <div class="ln">x = 5</div>
+      <div class="ln ok">3(5) + 7 = 22 <span class="tick">✓</span></div>
+      <div class="note">Right answer. Better: you told me why.</div>
     </div>
-  </footer>
-  <a class="whatsapp" href="https://wa.me/8801700000000" target="_blank" rel="noopener noreferrer" aria-label="Chat with Brightmind Academy on WhatsApp">WA</a>
+  </div>
+</section>
 
-  <script>
-    (() => {
-      const form = document.getElementById("admission-form");
-      const status = document.getElementById("form-status");
-      const successPanel = document.getElementById("success-panel");
-      const phonePattern = /^(\+?88)?01[3-9]\d{8}$/;
-      const courseSelect = document.getElementById("course");
+<section class="courses" id="courses">
+  <div class="wrap">
+    <div class="head">
+      <h2>Five subjects, taught for understanding</h2>
+      <p>Every course follows your school syllabus, then goes further where the student is ready.</p>
+    </div>
+    <div class="rows">
+      <a class="row" href="#join"><h3>Mathematics</h3><p>Algebra, geometry, trigonometry and the first ideas of calculus, built from why a method works.</p><span class="meta">Grades 9 to 12</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="row" href="#join"><h3>Physics and chemistry</h3><p>Weekly demonstrations and lab-style problems that turn formulas into things you can see.</p><span class="meta">Grades 9 to 12</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="row" href="#join"><h3>Biology</h3><p>From cells to ecosystems, using diagrams students draw and explain themselves.</p><span class="meta">Grades 9 to 12</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="row" href="#join"><h3>English and writing</h3><p>Clear essays, confident speaking and close reading of set texts.</p><span class="meta">Grades 9 to 12</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="row" href="#join"><h3>University preparation</h3><p>SAT and IELTS practice, application essays and help choosing subjects.</p><span class="meta">Grades 11 and 12</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</section>
 
-      document.querySelectorAll(".choose-course").forEach((button) => {
-        button.addEventListener("click", () => {
-          courseSelect.value = button.dataset.course;
-          document.getElementById("admission").scrollIntoView({ behavior: "smooth" });
-          courseSelect.focus({ preventScroll: true });
-        });
-      });
+<section class="path" id="path">
+  <div class="gridbg" aria-hidden="true"></div>
+  <div class="wrap path-in">
+    <div class="intro">
+      <h2>Four steps from stuck to sure</h2>
+      <p>Every student follows the same path, at their own pace. Guardians see each step in writing.</p>
+    </div>
+    <div class="steps" id="steps">
+      <div class="rail" aria-hidden="true"><i id="fill"></i></div>
+      <div class="step" data-n="1"><h3>Start with where you are</h3><p>A 40-minute conversation and a short task show what the student knows and where they get stuck.</p><span class="when">week 1</span></div>
+      <div class="step" data-n="2"><h3>Agree where you are going</h3><p>Goals, topics and weekly targets go on one page. Students and guardians each get a copy.</p><span class="when">week 1</span></div>
+      <div class="step" data-n="3"><h3>Learn in small groups</h3><p>A short explanation, then guided practice. Every student answers and shows their working in every class.</p><span class="when">weeks 2 to 12</span></div>
+      <div class="step" data-n="4"><h3>Check and adjust</h3><p>A monthly mock test and a progress note. If the results ask for a new plan, we write one.</p><span class="when">every month</span></div>
+    </div>
+  </div>
+</section>
 
-      document.querySelector("[data-demo-link]").addEventListener("click", () => {
-        document.getElementById("message").value = "I would like to request a free demo class.";
-      });
+<section id="achievements">
+  <div class="wrap ach-in">
+    <div class="big">
+      <div class="head"><h2>Results you can measure</h2></div>
+      <div class="num"><span class="count" data-to="94">0</span><sup>%</sup></div>
+      <p>of students raised their grade within one term.</p>
+      <div class="bars" id="bars">
+        <div class="bar">Average mark, start of term<div><i class="b1"></i></div></div>
+        <div class="bar after">Average mark, end of term<div><i class="b2"></i></div></div>
+        <small>Sample data. Replace with your own results.</small>
+      </div>
+    </div>
+    <div>
+      <div class="facts">
+        <div class="fact"><b><span class="count" data-to="640">0</span><em>+</em></b><span>students taught</span></div>
+        <div class="fact"><b><span class="count" data-to="38">0</span></b><span>scholarships won</span></div>
+        <div class="fact"><b><span class="count" data-to="12">0</span></b><span>years of teaching</span></div>
+      </div>
+      <ul class="awards" aria-label="Recognition">
+        <li>Regional science olympiad finalists</li><li>IELTS band 7 and above</li><li>SAT score gains of 150+</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        status.textContent = "";
+<section class="reviews" id="reviews">
+  <div class="wrap rev-in">
+    <div class="head"><h2>In their words</h2></div>
+    <div class="stage" id="stage" aria-live="polite">
+      <figure><blockquote>My son used to avoid maths homework. Now he explains each step to his sister.</blockquote><figcaption>Rahela A.<span>Parent of a grade 10 student</span></figcaption></figure>
+      <figure hidden><blockquote>The monthly notes told me exactly what to practise. I stopped guessing before exams.</blockquote><figcaption>Tanvir H.<span>Grade 12 student</span></figcaption></figure>
+      <figure hidden><blockquote>Small classes make the difference. Teachers know my daughter by name and by how she thinks.</blockquote><figcaption>Sabrina K.<span>Parent of a grade 9 student</span></figcaption></figure>
+    </div>
+    <div class="tabs" id="tabs" role="group" aria-label="Choose a review">
+      <button aria-pressed="true">Rahela, parent</button><button aria-pressed="false">Tanvir, student</button><button aria-pressed="false">Sabrina, parent</button>
+    </div>
+  </div>
+</section>
 
-        const name = document.getElementById("student-name").value.trim();
-        const studentClass = document.getElementById("student-class").value;
-        const phone = document.getElementById("parent-phone").value.trim();
-        const course = courseSelect.value;
+<section class="join gridbg" id="join">
+  <div class="wrap join-in">
+    <div class="l">
+      <h2>Sit in on a class before you decide</h2>
+      <p>Book a free trial class and a ten-minute chat with a teacher. We reply within one working day.</p>
+    </div>
+    <form class="card" id="form" novalidate>
+      <h3>Book a trial class</h3>
+      <label class="fld">Student's name<input id="name" autocomplete="name" required></label>
+      <label class="fld">Email address<input id="email" type="email" autocomplete="email" required></label>
+      <label class="fld">Grade<select id="grade"><option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option></select></label>
+      <button class="btn btn-gold" type="submit">Request my trial class</button>
+      <div class="msg" id="msg" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
 
-        if (!name || !studentClass || !course || !phone) {
-          status.textContent = "Please enter the student name, class, parent's phone number and course.";
-          return;
-        }
-        if (!phonePattern.test(phone)) {
-          status.textContent = "Enter a valid Bangladeshi mobile number, such as 01712345678 or +8801712345678.";
-          document.getElementById("parent-phone").focus();
-          return;
-        }
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top">Brightmind Academy</a>
+    <nav aria-label="Footer"><a href="#courses">Courses</a><a href="#path">Learning path</a><a href="#achievements">Achievements</a><a href="#reviews">Reviews</a></nav>
+    <p>© 2026 Brightmind Academy</p>
+  </div>
+</footer>
 
-        const submitButton = form.querySelector('[type="submit"]');
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending request…";
-        try {
-          const response = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: { Accept: "application/json" }
-          });
-          if (!response.ok) {
-            throw new Error("The admission request could not be sent.");
-          }
-          form.hidden = true;
-          successPanel.innerHTML = "";
-          const heading = document.createElement("h3");
-          heading.textContent = "Thank you. Your request is on its way.";
-          const confirmation = document.createElement("p");
-          confirmation.textContent = `We will call ${phone} about ${name}'s ${course} course.`;
-          successPanel.append(heading, confirmation);
-          successPanel.hidden = false;
-          successPanel.focus();
-        } catch (error) {
-          status.textContent = "We could not send your request right now. Please try again or call us at +880 1700-000000.";
-        } finally {
-          if (!form.hidden) {
-            submitButton.disabled = false;
-            submitButton.textContent = "Request a call back";
-          }
-        }
-      });
-    })();
-  </script>
+<script>
+(()=>{
+  const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const header=$('header'),burger=$('.burger'),menu=$('#menu');
+
+  const onScroll=()=>header.classList.toggle('scrolled',scrollY>20);
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  const setMenu=o=>{menu.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);header.classList.toggle('menu',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu')};
+  burger.addEventListener('click',()=>setMenu(!menu.classList.contains('open')));
+  $$('a',menu).forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+
+  // counters + bars
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;io.unobserve(e.target);const n=e.target;
+    if(n.id==='bars'){n.classList.add('in');return}
+    const to=+n.dataset.to;
+    if(reduce){n.textContent=to;return}
+    const t0=performance.now();
+    const tick=t=>{const p=Math.min((t-t0)/1500,1);n.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)};
+    requestAnimationFrame(tick);
+  }),{threshold:.5});
+  $$('.count,#bars').forEach(n=>io.observe(n));
+
+  // learning path
+  const steps=$('#steps'),fill=$('#fill'),items=$$('.step');
+  const path=()=>{
+    const r=steps.getBoundingClientRect(),vh=innerHeight,line=vh*.6;
+    fill.style.height=Math.min(Math.max(line-r.top,0),r.height)+'px';
+    items.forEach(s=>s.classList.toggle('on',s.getBoundingClientRect().top<line));
+  };
+  addEventListener('scroll',path,{passive:true});addEventListener('resize',path);path();
+
+  // reviews
+  const figs=$$('#stage figure'),tabs=$$('#tabs button');
+  tabs.forEach((b,i)=>b.addEventListener('click',()=>{
+    figs.forEach((f,j)=>f.hidden=i!==j);
+    tabs.forEach((t,j)=>t.setAttribute('aria-pressed',i===j));
+  }));
+
+  // form
+  $('#form').addEventListener('submit',e=>{
+    e.preventDefault();
+    const m=$('#msg'),n=$('#name'),em=$('#email');
+    m.classList.remove('err');
+    if(!n.value.trim()){m.classList.add('err');m.textContent="Enter the student's name.";n.focus();return}
+    if(!/^\S+@\S+\.\S+$/.test(em.value)){m.classList.add('err');m.textContent='Enter an email address like name@example.com.';em.focus();return}
+    m.textContent='Request sent. We will email class times within one working day.';
+    e.target.reset();
+  });
+})();
+</script>
 </body>
 </html>
