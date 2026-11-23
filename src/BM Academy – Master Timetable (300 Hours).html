@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Master Timetable – 300 Hours</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7FB;--surface:#fff;--ink:#0E1B3D;--muted:#4A5878;--line:#DDE2EE;--accent:#B87400;--teal:#0B7A70;--code:#EEF1F8;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1430;--surface:#16264F;--ink:#fff;--muted:#B8C4E0;--line:#2A3E73;--accent:#FFB703;--teal:#2EC4B6;--code:#0E1B3D;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A1430;--surface:#16264F;--ink:#fff;--muted:#B8C4E0;--line:#2A3E73;--accent:#FFB703;--teal:#2EC4B6;--code:#0E1B3D;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.5}
+.hero{background:#0E1B3D;color:#fff;padding:40px 20px}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}.hero .wrap{padding:0}
+.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:1px;color:#2EC4B6}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,6.5vw,50px);line-height:1.05;margin:8px 0 12px}h1 span{color:#FFB703}
+.hero p{color:#B8C4E0;margin:0;max-width:620px}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stats div{background:#16264F;border:1px solid #2A3E73;border-radius:12px;padding:10px 16px;font-size:14px;color:#B8C4E0}
+.stats b{display:block;font-size:22px;color:#FFB703;font-family:'Space Grotesk',sans-serif}
+.stack{display:flex;flex-direction:column;gap:16px;margin:28px 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:var(--accent)}
+.hrs{background:var(--teal);color:#fff;font-size:13px;font-weight:600;border-radius:999px;padding:4px 12px}
+.card h2{font-family:'Space Grotesk',sans-serif;font-size:23px;margin:6px 0 10px}
+.blocks{list-style:none;margin:0;padding:0}
+.blocks li{display:flex;gap:14px;padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.t{flex:0 0 48px;font-weight:700;color:var(--teal)}
+.card h3{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin:16px 0 6px}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:12px;margin:0;white-space:pre-wrap;word-break:break-word;font-size:14px;font-family:ui-monospace,Menlo,monospace}
+.out{font-weight:600;margin:0}
+.note{color:var(--muted);font-size:14px;text-align:center;padding:0 0 32px}
+.ctl{display:flex;flex-wrap:wrap;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin:24px 0 0}
+.ctl label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+.ctl input,.ctl select{font:inherit;font-size:16px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.scroll{overflow-x:auto;margin:16px 0}
+table.tt{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line)}
+.tt th{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);text-align:left}
+.tt th,.tt td{padding:10px 12px;border-bottom:1px solid var(--line);font-size:15px;white-space:nowrap}
+.tt td:first-child{color:var(--accent);font-weight:700}
+.tt a{color:var(--teal);font-weight:600}
+.tt tfoot td{font-weight:700;border-bottom:0}
+</style></head><body>
+<header class="hero"><div class="wrap"><div class="brand">BM ACADEMY</div><h1>Master <span>Timetable</span></h1><p>All 13 modules in teaching order, with day numbers, cumulative hours and calendar dates. Set your start date to fill in the dates.</p>
+<div class="stats"><div><b>300</b>hours</div><div><b>57</b>teaching days</div><div><b>13</b>modules</div><div><b id="end">—</b>last day</div></div></div></header>
+<main class="wrap">
+<div class="ctl"><label>Start date<input type="date" id="start"></label>
+<label>Days off<select id="off"><option value="5,6">Friday and Saturday</option><option value="5">Friday only</option><option value="6,0">Saturday and Sunday</option></select></label>
+<label>Extra holidays (YYYY-MM-DD, comma separated)<input type="text" id="hol" placeholder="2026-12-16, 2026-12-25" size="28"></label></div>
+<div class="scroll"><table class="tt"><thead><tr><th>Module</th><th>Tool</th><th>Days</th><th>Starts</th><th>Ends</th><th>Hours</th><th>Total</th><th>Plan</th></tr></thead><tbody id="rows"></tbody>
+<tfoot><tr><td></td><td>Total</td><td>57</td><td></td><td></td><td>300</td><td></td><td></td></tr></tfoot></table></div>
+<p class="note">Lesson plan links open for the account that published them. To share them with trainers, use the share option on each page. Change the start date or days off above and the dates update.</p></main>
+<script>
+const M=[{"n": "00", "t": "Foundations & Prompt Engineering", "d": 4, "h": 20, "u": "https://claude.ai/artifact/1r27HRYw7NZp5DGxz4ni59"}, {"n": "01", "t": "ChatGPT", "d": 7, "h": 40, "u": "https://claude.ai/artifact/TXGoshX5DbQjzVQ3C47AgX"}, {"n": "02", "t": "Microsoft Copilot", "d": 4, "h": 20, "u": "https://claude.ai/artifact/RuUE5J7eavYRyugYeKY1nd"}, {"n": "03", "t": "Deepseek", "d": 4, "h": 20, "u": "https://claude.ai/artifact/AAzepMAgSDNYN19rF6H4Vq"}, {"n": "04", "t": "Gemini", "d": 5, "h": 30, "u": "https://claude.ai/artifact/DM3T3S4bWVFkrERwVofqYP"}, {"n": "05", "t": "Grammarly", "d": 3, "h": 15, "u": "https://claude.ai/artifact/DQNJMgyGj6vAFJXPgspY41"}, {"n": "06", "t": "Quillbot", "d": 3, "h": 15, "u": "https://claude.ai/artifact/3bgJ9hGQSRKPBi2tqRFq4x"}, {"n": "07", "t": "Jasper", "d": 4, "h": 20, "u": "https://claude.ai/artifact/FRsmNYjtUUqQgEaXeKkBQi"}, {"n": "08", "t": "Canva", "d": 6, "h": 35, "u": "https://claude.ai/artifact/HBkqtmPixcZAExLMajJAsP"}, {"n": "09", "t": "Pixlr", "d": 4, "h": 20, "u": "https://claude.ai/artifact/LkfTtf6BdmWj3XKAhzGzr7"}, {"n": "10", "t": "Invideo", "d": 5, "h": 25, "u": "https://claude.ai/artifact/GVypVGJNaNn2R4v3gRMsf5"}, {"n": "11", "t": "Eleven Labs", "d": 4, "h": 20, "u": "https://claude.ai/artifact/3BPQMUAoqQcjRerfUNfhJ5"}, {"n": "12", "t": "Capstone Project", "d": 4, "h": 20, "u": "https://claude.ai/artifact/B723ZjkNc6AQCq3v5U245w"}];
+const $=id=>document.getElementById(id);
+const fmt=d=>d.toLocaleDateString('en-GB',{weekday:'short',day:'2-digit',month:'short',year:'numeric'});
+function build(){
+  const s=$('start').value, off=$('off').value.split(',').map(Number);
+  const hol=new Set($('hol').value.split(',').map(x=>x.trim()).filter(Boolean));
+  let dates=null;
+  if(s){
+    dates=[];let d=new Date(s+'T00:00:00');
+    while(dates.length<57){
+      const iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+      if(!off.includes(d.getDay())&&!hol.has(iso))dates.push(new Date(d));
+      d.setDate(d.getDate()+1);
+    }
+  }
+  let day=0,cum=0,h='';
+  for(const m of M){
+    const a=day+1,b=day+m.d;cum+=m.h;
+    h+=`<tr><td>${m.n}</td><td>${m.t}</td><td>Day ${a}–${b}</td><td>${dates?fmt(dates[a-1]):'—'}</td><td>${dates?fmt(dates[b-1]):'—'}</td><td>${m.h} h</td><td>${cum} h</td><td><a href="${m.u}" target="_blank" rel="noopener">Open</a></td></tr>`;
+    day=b;
+  }
+  $('rows').innerHTML=h;
+  $('end').textContent=dates?dates[dates.length-1].toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}):'—';
+}
+['start','off','hol'].forEach(i=>$(i).addEventListener('input',build));
+build();
+</script></body></html>

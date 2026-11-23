@@ -135,6 +135,38 @@ header.scrolled,header.menu{background:rgba(253,254,255,.92);backdrop-filter:blu
 .awards li{list-style:none;padding:10px 18px;border-radius:99px;background:var(--gold-2);font-weight:600;font-size:.92rem;color:var(--ink)}
 .awards{padding:0}
 
+/* special AI course module */
+.course-module{background:var(--ink);color:#fff}
+.course-module .head h2{color:#fff}
+.course-module .head p{color:#B5CBDE}
+.course-module .head{margin-bottom:36px}
+.module-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 28px}
+.module-stats div{border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:18px;background:rgba(255,255,255,.06)}
+.module-stats b{display:block;font:500 clamp(1.7rem,4vw,2.8rem)/1 var(--serif);color:var(--gold)}
+.module-stats span{display:block;margin-top:8px;color:#B5CBDE;font-size:.9rem}
+.module-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.module-filter{min-height:42px;padding:0 16px;border:1px solid rgba(255,255,255,.25);border-radius:99px;background:transparent;color:#fff;font:600 .9rem var(--sans);cursor:pointer}
+.module-filter[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.module-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.module-card{display:flex;flex-direction:column;min-height:190px;border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:22px;background:rgba(255,255,255,.055);text-decoration:none;color:#fff;transition:.25s}
+.module-card:hover{transform:translateY(-4px);border-color:var(--gold);background:rgba(255,255,255,.09)}
+.module-card-top{display:flex;justify-content:space-between;align-items:center;color:#B5CBDE;font-size:.84rem}
+.module-card-top span:first-child{font:600 1.1rem var(--serif);color:var(--gold)}
+.module-card h3{font-size:1.35rem;margin:20px 0 8px}
+.module-card p{color:#B5CBDE;font-size:.92rem}
+.module-card[hidden]{display:none}
+.resource-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)}
+.resource-link{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:14px 18px;border:1px solid rgba(255,255,255,.14);border-radius:12px;color:#fff;text-decoration:none;background:transparent;cursor:pointer;font:600 .96rem var(--sans);text-align:left}
+.resource-link:hover{border-color:var(--gold);background:rgba(255,255,255,.06)}
+.resource-link span:last-child{color:var(--gold);font-size:1.35rem}
+.course-modal{position:fixed;inset:0;z-index:100;display:none;background:rgba(14,42,71,.82);padding:24px;align-items:center;justify-content:center}
+.course-modal.open{display:flex}
+.course-modal-panel{width:min(1180px,100%);height:min(820px,92vh);border:0;border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.35)}
+.course-modal-head{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 16px 0 22px;background:var(--ink);color:#fff}
+.course-modal-head strong{font-family:var(--serif);font-size:1.1rem}
+.course-modal-close{width:42px;height:42px;border:0;border-radius:50%;background:var(--gold);color:var(--ink);font-size:1.4rem;cursor:pointer}
+.course-modal iframe{width:100%;height:calc(100% - 58px);border:0;background:#fff}
+
 /* reviews */
 .reviews{background:var(--sky-2)}
 .rev-in{display:grid;gap:40px}
@@ -171,6 +203,9 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
 
 @media(max-width:860px){
   .burger{display:block}
+  .module-stats{grid-template-columns:repeat(2,1fr)}
+  .module-grid{grid-template-columns:1fr}
+  .resource-strip{grid-template-columns:1fr}
   .nav ul{position:fixed;inset:72px 0 auto;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);padding:6px var(--pad) 28px;border-bottom:1px solid var(--grid);transform:translateY(-140%);transition:transform .35s;z-index:-1}
   .nav ul.open{transform:none}
   .nav ul a:not(.btn){display:block;padding:16px 0;border-bottom:1px solid var(--grid);font-size:1.15rem}
@@ -201,6 +236,7 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
     <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <ul id="menu">
       <li><a href="#courses">Courses</a></li>
+      <li><a href="#course-module">AI course</a></li>
       <li><a href="#path">Learning path</a></li>
       <li><a href="#achievements">Achievements</a></li>
       <li><a href="#reviews">Reviews</a></li>
@@ -252,6 +288,56 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
     </div>
   </div>
 </section>
+
+<section class="course-module" id="course-module">
+  <div class="wrap">
+    <div class="head">
+      <h2>BM Academy AI Course Module</h2>
+      <p>A 300-hour, tool-by-tool programme covering 11 AI tools, practical assignments and a final capstone portfolio.</p>
+    </div>
+    <div class="module-stats" aria-label="Course summary">
+      <div><b>300</b><span>total hours</span></div>
+      <div><b>57</b><span>teaching days</span></div>
+      <div><b>11</b><span>AI tools</span></div>
+      <div><b>13</b><span>modules</span></div>
+    </div>
+    <div class="module-toolbar" aria-label="Filter course modules">
+      <button class="module-filter" type="button" aria-pressed="true" data-filter="all">All modules</button>
+      <button class="module-filter" type="button" aria-pressed="false" data-filter="foundation">Foundations</button>
+      <button class="module-filter" type="button" aria-pressed="false" data-filter="writing">Writing</button>
+      <button class="module-filter" type="button" aria-pressed="false" data-filter="design">Design &amp; media</button>
+      <button class="module-filter" type="button" aria-pressed="false" data-filter="capstone">Capstone</button>
+    </div>
+    <div class="module-grid">
+      <a class="module-card" data-category="foundation" href="src/BM%20Academy%20%E2%80%93%20Foundations%20%26%20Prompt%20Engineering%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>00</span><span>20 hours</span></div><h3>Foundations &amp; Prompt Engineering</h3><p>AI fundamentals, prompt formulas, fact-checking and a 25-prompt library.</p></a>
+      <a class="module-card" data-category="writing" href="src/BM%20Academy%20%E2%80%93%20ChatGPT%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>01</span><span>40 hours</span></div><h3>ChatGPT</h3><p>Custom GPTs, research, reports, data summaries and professional writing.</p></a>
+      <a class="module-card" data-category="writing" href="src/BM%20Academy%20%E2%80%93%20Copilot%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>02</span><span>20 hours</span></div><h3>Microsoft Copilot</h3><p>Copilot across Word, Excel, PowerPoint and Outlook.</p></a>
+      <a class="module-card" data-category="foundation" href="src/BM%20Academy%20%E2%80%93%20Deepseek%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>03</span><span>20 hours</span></div><h3>Deepseek</h3><p>Step-by-step reasoning, mathematics, logic and code generation.</p></a>
+      <a class="module-card" data-category="writing" href="src/BM%20Academy%20%E2%80%93%20Gemini%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>04</span><span>30 hours</span></div><h3>Gemini</h3><p>Google Workspace, deep research, document understanding and planning.</p></a>
+      <a class="module-card" data-category="writing" href="src/BM%20Academy%20%E2%80%93%20Grammarly%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>05</span><span>15 hours</span></div><h3>Grammarly</h3><p>Grammar, tone, clarity, plagiarism checks and AI-assisted rewriting.</p></a>
+      <a class="module-card" data-category="writing" href="src/BM%20Academy%20%E2%80%93%20Quillbot%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>06</span><span>15 hours</span></div><h3>Quillbot</h3><p>Responsible paraphrasing, summarising, citations and co-writing.</p></a>
+      <a class="module-card" data-category="writing" href="src/BM%20Academy%20%E2%80%93%20Jasper%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>07</span><span>20 hours</span></div><h3>Jasper</h3><p>Brand voice, ad copy, product descriptions, SEO and campaign writing.</p></a>
+      <a class="module-card" data-category="design" href="src/BM%20Academy%20%E2%80%93%20Canva%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>08</span><span>35 hours</span></div><h3>Canva</h3><p>Brand kits, social posts, presentations, posters and short videos.</p></a>
+      <a class="module-card" data-category="design" href="src/BM%20Academy%20%E2%80%93%20Pixlr%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>09</span><span>20 hours</span></div><h3>Pixlr</h3><p>AI photo editing, retouching, generative fill and platform resizing.</p></a>
+      <a class="module-card" data-category="design" href="src/BM%20Academy%20%E2%80%93%20Invideo%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>10</span><span>25 hours</span></div><h3>Invideo</h3><p>Text-to-video, scripts, stock media, captions and format conversion.</p></a>
+      <a class="module-card" data-category="design" href="src/BM%20Academy%20%E2%80%93%20Eleven%20Labs%20Day-by-Day%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>11</span><span>20 hours</span></div><h3>Eleven Labs</h3><p>Text-to-speech, multilingual voiceovers, audio and ethical voice use.</p></a>
+      <a class="module-card" data-category="capstone" href="src/BM%20Academy%20%E2%80%93%20Capstone%20Project%20Lesson%20Plan.html" target="_blank" rel="noopener"><div class="module-card-top"><span>12</span><span>20 hours</span></div><h3>Capstone Project</h3><p>Research, copy, design, video and a complete AI-powered campaign.</p></a>
+    </div>
+    <div class="resource-strip" aria-label="Course documents">
+      <button class="resource-link" type="button" data-src="src/BM%20Academy%20%E2%80%93%20AI%20Course%20Module%20(300%20Hours).html" data-title="Course module overview"><span>Course module overview</span><span>↗</span></button>
+      <button class="resource-link" type="button" data-src="src/BM%20Academy%20%E2%80%93%20Master%20Timetable%20(300%20Hours).html" data-title="Master 300-hour timetable"><span>Master 300-hour timetable</span><span>↗</span></button>
+      <button class="resource-link" type="button" data-src="src/BM%20Academy%20%E2%80%93%20Trainee%20Handbook%20(AI%20Course).html" data-title="Trainee handbook"><span>Trainee handbook</span><span>↗</span></button>
+      <button class="resource-link" type="button" data-src="src/BM%20Academy%20%E2%80%93%20Exam%20Question%20Bank.html" data-title="Exam question bank"><span>Exam question bank</span><span>↗</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="course-modal" id="course-modal" role="dialog" aria-modal="true" aria-labelledby="course-modal-title">
+  <div class="course-modal-panel">
+    <div class="course-modal-head"><strong id="course-modal-title">Course resource</strong><button class="course-modal-close" type="button" aria-label="Close course resource">×</button></div>
+    <iframe id="course-modal-frame" title="Course resource"></iframe>
+  </div>
+</div>
 
 <section class="path" id="path">
   <div class="gridbg" aria-hidden="true"></div>
@@ -330,7 +416,7 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
 <footer>
   <div class="wrap foot">
     <a class="logo" href="#top">Brightmind Academy</a>
-    <nav aria-label="Footer"><a href="#courses">Courses</a><a href="#path">Learning path</a><a href="#achievements">Achievements</a><a href="#reviews">Reviews</a></nav>
+    <nav aria-label="Footer"><a href="#courses">Courses</a><a href="#course-module">AI course</a><a href="#path">Learning path</a><a href="#achievements">Achievements</a><a href="#reviews">Reviews</a></nav>
     <p>© 2026 Brightmind Academy</p>
   </div>
 </footer>
@@ -369,6 +455,28 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
     items.forEach(s=>s.classList.toggle('on',s.getBoundingClientRect().top<line));
   };
   addEventListener('scroll',path,{passive:true});addEventListener('resize',path);path();
+
+  // special AI course module
+  const filters=$$('.module-filter'),cards=$$('.module-card');
+  filters.forEach(button=>button.addEventListener('click',()=>{
+    const filter=button.dataset.filter;
+    filters.forEach(item=>item.setAttribute('aria-pressed',item===button));
+    cards.forEach(card=>{card.hidden=filter!=='all'&&card.dataset.category!==filter});
+  }));
+
+  const modal=$('#course-modal'),frame=$('#course-modal-frame'),modalTitle=$('#course-modal-title');
+  const closeModal=()=>{modal.classList.remove('open');frame.removeAttribute('src');document.body.style.overflow=''};
+  $$('.resource-link').forEach(button=>button.addEventListener('click',()=>{
+    modalTitle.textContent=button.dataset.title;
+    frame.title=button.dataset.title;
+    frame.src=button.dataset.src;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+    $('.course-modal-close').focus();
+  }));
+  $('.course-modal-close').addEventListener('click',closeModal);
+  modal.addEventListener('click',event=>{if(event.target===modal)closeModal()});
+  addEventListener('keydown',event=>{if(event.key==='Escape'&&modal.classList.contains('open'))closeModal()});
 
   // reviews
   const figs=$$('#stage figure'),tabs=$$('#tabs button');
