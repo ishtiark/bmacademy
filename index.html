@@ -12,9 +12,13 @@
 <style>
 :root{
   --paper:#FDFEFF;--grid:#DCEEF9;--sky:#7EC3EC;--sky-2:#E8F4FC;--blue:#1B73B3;--ink:#0E2A47;--ink-2:#143A5E;--muted:#4F677C;
-  --gold:#C79A3B;--gold-2:#F7EBCB;
+  --gold:#C79A3B;--gold-2:#F7EBCB;--section-dark:#0E2A47;color-scheme:light;
   --serif:'Fraunces',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;--hand:'Caveat','Segoe Script',cursive;
   --pad:clamp(20px,5vw,72px);--sec:clamp(80px,11vw,150px);
+}
+:root[data-theme="dark"]{
+  --paper:#0B1729;--grid:#203650;--sky:#8BCBF0;--sky-2:#13273D;--blue:#82C2EB;--ink:#EAF2FA;--ink-2:#D5E4F2;--muted:#AFC0D2;
+  --gold:#E2B85E;--gold-2:#3A3020;--section-dark:#07182A;color-scheme:dark;
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
@@ -32,7 +36,7 @@ p{color:var(--muted)}
 .gridbg{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:36px 36px}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:99px;border:0;cursor:pointer;font:600 1rem var(--sans);text-decoration:none;transition:transform .2s,background .2s,box-shadow .2s}
-.btn-ink{background:var(--ink);color:#fff;box-shadow:0 10px 24px -10px rgba(14,42,71,.7)}
+.btn-ink{background:var(--section-dark);color:#fff;box-shadow:0 10px 24px -10px rgba(14,42,71,.7)}
 .btn-ink:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(14,42,71,.65)}
 .btn-line{box-shadow:inset 0 0 0 1.5px var(--ink);color:var(--ink);background:rgba(255,255,255,.55)}
 .btn-line:hover{background:var(--ink);color:#fff}
@@ -51,6 +55,13 @@ header.scrolled,header.menu{background:rgba(253,254,255,.94);backdrop-filter:blu
 .nav ul a.ai-course-link:not(.btn){padding:10px 16px;border-radius:99px;background:var(--gold-2);color:var(--ink);font-weight:600;text-decoration:none}
 .nav ul a.ai-course-link:not(.btn):hover{background:var(--gold);text-decoration:none}
 .nav .btn{min-height:44px;padding:0 22px}
+.theme-toggle{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid var(--grid);border-radius:50%;background:var(--paper);color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.theme-toggle:hover{background:var(--sky-2);border-color:var(--sky);transform:translateY(-1px)}
+.theme-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme-toggle .sun-icon{display:none}
+:root[data-theme="dark"] .theme-toggle .moon-icon{display:none}
+:root[data-theme="dark"] .theme-toggle .sun-icon{display:block}
+.theme-label{display:none}
 .burger{display:none;width:48px;height:48px;border:0;background:none;cursor:pointer}
 .burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px auto;transition:.25s}
 .burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -100,7 +111,7 @@ header.scrolled,header.menu{background:rgba(253,254,255,.94);backdrop-filter:blu
 .row:hover .go{background:var(--gold);border-color:var(--gold);transform:rotate(-45deg)}
 
 /* path */
-.path{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.path{background:var(--section-dark);color:#fff;position:relative;overflow:hidden}
 .path .gridbg{position:absolute;inset:0;opacity:.07;filter:invert(1)}
 .path-in{position:relative;display:grid;gap:56px}
 .path h2{color:#fff}.path p{color:#B5CBDE}
@@ -140,7 +151,7 @@ header.scrolled,header.menu{background:rgba(253,254,255,.94);backdrop-filter:blu
 .awards{padding:0}
 
 /* special AI course module */
-.course-module{background:radial-gradient(ellipse at 100% 0,rgba(126,195,236,.16),transparent 34rem),linear-gradient(145deg,#102E4D,var(--ink));color:#fff}
+.course-module{background:radial-gradient(ellipse at 100% 0,rgba(126,195,236,.16),transparent 34rem),linear-gradient(145deg,#102E4D,var(--section-dark));color:#fff}
 .course-module .head h2{color:#fff}
 .course-module .head p{color:#B5CBDE}
 .course-module .head{margin-bottom:36px}
@@ -191,7 +202,7 @@ header.scrolled,header.menu{background:rgba(253,254,255,.94);backdrop-filter:blu
 .tabs{display:flex;flex-wrap:wrap;gap:10px}
 .tabs button{min-height:48px;padding:0 22px;border-radius:99px;border:2px solid var(--ink);background:transparent;font:600 .95rem var(--sans);color:var(--ink);cursor:pointer;transition:.2s}
 .tabs button:hover{background:#fff}
-.tabs button[aria-pressed=true]{background:var(--ink);color:#fff}
+.tabs button[aria-pressed=true]{background:var(--section-dark);color:#fff}
 
 /* join */
 .join-in{display:grid;gap:48px;align-items:center}
@@ -206,11 +217,41 @@ header.scrolled,header.menu{background:rgba(253,254,255,.94);backdrop-filter:blu
 .contact-note{font-size:.92rem}
 .card .btn{width:100%;margin-top:6px}
 
-footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
+footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
 .foot{display:flex;flex-wrap:wrap;gap:24px 40px;justify-content:space-between;align-items:center}
 .foot .logo{color:#fff}
 .foot nav{display:flex;gap:26px;flex-wrap:wrap}
 .foot a{text-decoration:none}.foot nav a:hover{color:#fff}
+
+.portfolio-band{padding:clamp(48px,7vw,88px) 0;background:var(--sky-2)}
+.portfolio-card{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:clamp(28px,5vw,56px);border:1px solid var(--grid);border-radius:24px;background:var(--paper);box-shadow:0 24px 54px -40px rgba(14,42,71,.45)}
+.portfolio-kicker{font-size:.78rem;font-weight:700;letter-spacing:.14em;color:var(--blue)}
+.portfolio-card h2{margin-top:10px;font-size:clamp(2rem,4vw,3rem)}
+.portfolio-card p{margin-top:12px;max-width:48ch}
+.portfolio-card .btn{flex-shrink:0}
+
+:root[data-theme="dark"] header.scrolled,:root[data-theme="dark"] header.menu{background:rgba(7,24,42,.94);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+:root[data-theme="dark"] .btn-ink{background:var(--gold);color:#15243A;box-shadow:0 10px 24px -10px rgba(0,0,0,.7)}
+:root[data-theme="dark"] .btn-ink:hover{background:#F0CB78;color:#10243A}
+:root[data-theme="dark"] .btn-line{background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1.5px rgba(234,242,250,.72);color:var(--ink)}
+:root[data-theme="dark"] .btn-line:hover{background:#EAF2FA;color:#10243A}
+:root[data-theme="dark"] .skip-link{background:#EAF2FA;color:#10243A}
+:root[data-theme="dark"] .nav ul a.ai-course-link:not(.btn){background:var(--gold);color:#15243A}
+:root[data-theme="dark"] .module-filter[aria-pressed=true]{color:#15243A}
+:root[data-theme="dark"] .row,:root[data-theme="dark"] .card{border-color:#29435E;background:linear-gradient(145deg,#142A42,#102239);color:var(--ink)}
+:root[data-theme="dark"] .row:hover{border-color:#6CA9D2;background:#18344F}
+:root[data-theme="dark"] .go{border-color:#38536C;background:#102239}
+:root[data-theme="dark"] .go svg{stroke:var(--ink)}
+:root[data-theme="dark"] .tabs button:hover{background:#243D57}
+:root[data-theme="dark"] .tabs button[aria-pressed=true]{background:var(--section-dark);color:#fff}
+:root[data-theme="dark"] .path .step::before{background:var(--section-dark)}
+:root[data-theme="dark"] .path .step.on::before{color:#15243A}
+:root[data-theme="dark"] .course-modal-head{background:var(--section-dark)}
+:root[data-theme="dark"] .course-modal-close{color:#15243A}
+:root[data-theme="dark"] .page{background-color:#fff;background-image:repeating-linear-gradient(transparent 0 35px,#DCEEF9 35px 36px)}
+:root[data-theme="dark"] .page .ln{color:#0E2A47}
+:root[data-theme="dark"] .page .ln small{color:#1B73B3}
+:root[data-theme="dark"] .page .q{color:#1B73B3}
 
 @media(max-width:860px){
   .burger{display:block}
@@ -221,6 +262,9 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
   .nav ul.open{transform:none}
   .nav ul a:not(.btn){display:block;padding:16px 0;border-bottom:1px solid var(--grid);font-size:1.15rem}
   .nav ul a.ai-course-link:not(.btn){padding:12px 16px;border:0}
+  .nav ul .theme-toggle{width:100%;height:auto;min-height:48px;justify-content:flex-start;margin-top:8px;padding:0 10px;border:0;border-bottom:1px solid var(--grid);border-radius:0;background:transparent}
+  .nav ul .theme-toggle:hover{background:var(--sky-2);transform:none}
+  .theme-label{display:inline}
   .nav ul .btn{margin-top:18px}
   .note{right:6px}.page{padding-left:54px}.page::before{left:38px}
   .join-in{grid-template-columns:1fr}
@@ -239,6 +283,8 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
   .course-modal-panel{height:94vh}
   .course-modal-head{padding-left:14px}
   .booking-card{padding:26px}
+  .portfolio-card{align-items:stretch;flex-direction:column}
+  .portfolio-card .btn{width:100%}
 }
 @media(min-width:861px){
   .hero-in{grid-template-columns:1.25fr .75fr}
@@ -252,6 +298,13 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
   .ln,.note{opacity:1}.ul path{stroke-dashoffset:0}.step{opacity:1}.bars .b1{width:58%}.bars .b2{width:86%}
 }
 </style>
+<script>
+(()=>{
+  const saved=localStorage.getItem('brightmind-theme');
+  const prefersDark=matchMedia('(prefers-color-scheme:dark)').matches;
+  document.documentElement.dataset.theme=saved==='dark'||saved==='light'?saved:(prefersDark?'dark':'light');
+})();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -268,6 +321,11 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
       <li><a href="#path">Learning path</a></li>
       <li><a href="#achievements">Achievements</a></li>
       <li><a href="#reviews">Reviews</a></li>
+      <li><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.8 8.8 0 0 1 8.9 3.8 9 9 0 1 0 20.2 15.1Z"/></svg>
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        <span class="theme-label" id="theme-label">Dark mode</span>
+      </button></li>
       <li><a class="btn btn-ink" href="#join">Book a class</a></li>
     </ul>
   </div>
@@ -445,6 +503,19 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
 </section>
 </main>
 
+<section class="portfolio-band" aria-labelledby="portfolio-title">
+  <div class="wrap">
+    <div class="portfolio-card">
+      <div>
+        <span class="portfolio-kicker">INSTRUCTOR</span>
+        <h2 id="portfolio-title">Meet your instructor</h2>
+        <p>Explore Arif Ishtiaq Emon's background, skills, and projects.</p>
+      </div>
+      <a class="btn btn-ink" href="https://ishtiark.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">View instructor portfolio <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap foot">
     <a class="logo" href="#top">Brightmind Academy</a>
@@ -458,6 +529,20 @@ footer{background:var(--ink);color:#B5CBDE;padding:56px 0}
   const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
   const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
   const header=$('header'),burger=$('.burger'),menu=$('#menu');
+  const themeToggle=$('#theme-toggle'),themeLabel=$('#theme-label');
+  const updateThemeToggle=()=>{
+    const dark=document.documentElement.dataset.theme==='dark';
+    themeToggle.setAttribute('aria-pressed',String(dark));
+    themeLabel.textContent=dark?'Light mode':'Dark mode';
+    themeToggle.title=dark?'Switch to light mode':'Switch to dark mode';
+  };
+  updateThemeToggle();
+  themeToggle.addEventListener('click',()=>{
+    const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';
+    document.documentElement.dataset.theme=theme;
+    localStorage.setItem('brightmind-theme',theme);
+    updateThemeToggle();
+  });
 
   const onScroll=()=>header.classList.toggle('scrolled',scrollY>20);
   addEventListener('scroll',onScroll,{passive:true});onScroll();
