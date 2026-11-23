@@ -127,29 +127,6 @@ header.scrolled,header.menu{background:rgba(253,254,255,.94);backdrop-filter:blu
 .step p{max-width:50ch}
 .step .when{display:inline-block;margin-top:14px;font:600 1.3rem var(--hand);color:var(--gold)}
 
-/* achievements */
-.ach-in{display:grid;gap:56px}
-.big{position:relative}
-.big .num{font:500 clamp(6rem,20vw,13rem)/.85 var(--serif);letter-spacing:-.06em;color:var(--ink)}
-.big .num sup{font-size:.4em;color:var(--gold);vertical-align:top;letter-spacing:0}
-.big p{margin:14px 0 30px;max-width:30ch;font-size:1.15rem;color:var(--ink)}
-.bars{display:grid;gap:14px;max-width:440px}
-.bar{font-size:.9rem;font-weight:500}
-.bar div{height:16px;border-radius:99px;background:var(--sky-2);margin-top:6px;overflow:hidden}
-.bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--sky);transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
-.bar.after i{background:var(--gold)}
-.bars.in .b1{width:58%}.bars.in .b2{width:86%}
-.bars small{color:var(--muted)}
-.facts{display:grid;gap:0;align-content:start}
-.fact{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:26px 0;border-bottom:1px solid var(--grid)}
-.fact:first-child{border-top:2px solid var(--ink)}
-.fact b{font:500 clamp(2.6rem,6vw,4.2rem)/1 var(--serif);letter-spacing:-.03em;white-space:nowrap}
-.fact b em{font-style:normal;color:var(--gold)}
-.fact span{max-width:20ch;text-align:right;color:var(--muted);font-weight:500}
-.awards{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.awards li{list-style:none;padding:10px 18px;border-radius:99px;background:var(--gold-2);font-weight:600;font-size:.92rem;color:var(--ink)}
-.awards{padding:0}
-
 /* special AI course module */
 .course-module{background:radial-gradient(ellipse at 100% 0,rgba(126,195,236,.16),transparent 34rem),linear-gradient(145deg,#102E4D,var(--section-dark));color:#fff}
 .course-module .head h2{color:#fff}
@@ -189,21 +166,6 @@ header.scrolled,header.menu{background:rgba(253,254,255,.94);backdrop-filter:blu
 .course-modal-close{width:42px;height:42px;border:0;border-radius:50%;background:var(--gold);color:var(--ink);font-size:1.4rem;cursor:pointer}
 .course-modal iframe{width:100%;height:calc(100% - 58px);border:0;background:#fff}
 
-/* reviews */
-.reviews{background:var(--sky-2)}
-.rev-in{display:grid;gap:40px}
-.stage{position:relative;min-height:290px}
-.stage::before{content:"“";position:absolute;left:-6px;top:-70px;font:500 11rem/1 var(--serif);color:var(--gold);opacity:.9}
-.stage blockquote{font:400 clamp(1.7rem,3.8vw,3rem)/1.25 var(--serif);letter-spacing:-.02em;color:var(--ink);padding-top:70px;max-width:26ch}
-.stage figure[hidden]{display:none}
-.stage figure{animation:fade .6s}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}}
-.stage figcaption{margin-top:26px;font-weight:600}.stage figcaption span{display:block;font-weight:400;color:var(--muted)}
-.tabs{display:flex;flex-wrap:wrap;gap:10px}
-.tabs button{min-height:48px;padding:0 22px;border-radius:99px;border:2px solid var(--ink);background:transparent;font:600 .95rem var(--sans);color:var(--ink);cursor:pointer;transition:.2s}
-.tabs button:hover{background:#fff}
-.tabs button[aria-pressed=true]{background:var(--section-dark);color:#fff}
-
 /* join */
 .join-in{display:grid;gap:48px;align-items:center}
 .join h2{max-width:13ch}
@@ -223,12 +185,19 @@ footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
 .foot nav{display:flex;gap:26px;flex-wrap:wrap}
 .foot a{text-decoration:none}.foot nav a:hover{color:#fff}
 
-.portfolio-band{padding:clamp(48px,7vw,88px) 0;background:var(--sky-2)}
-.portfolio-card{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:clamp(28px,5vw,56px);border:1px solid var(--grid);border-radius:24px;background:var(--paper);box-shadow:0 24px 54px -40px rgba(14,42,71,.45)}
-.portfolio-kicker{font-size:.78rem;font-weight:700;letter-spacing:.14em;color:var(--blue)}
-.portfolio-card h2{margin-top:10px;font-size:clamp(2rem,4vw,3rem)}
-.portfolio-card p{margin-top:12px;max-width:48ch}
-.portfolio-card .btn{flex-shrink:0}
+.portfolio-band{padding:clamp(52px,8vw,96px) 0;background:var(--sky-2)}
+.portfolio-card{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:32px;overflow:hidden;padding:clamp(24px,4vw,48px);border:1px solid var(--grid);border-radius:22px;background:var(--paper);box-shadow:0 18px 50px -42px rgba(14,42,71,.55)}
+.portfolio-card::after{position:absolute;top:-126px;right:9%;width:240px;height:240px;border:1px solid var(--grid);border-radius:50%;content:"";pointer-events:none}
+.portfolio-main{display:flex;align-items:center;gap:24px;min-width:0}
+.portfolio-mark{display:grid;flex:0 0 76px;aspect-ratio:1;place-items:center;border:1px solid var(--grid);border-radius:20px;background:linear-gradient(145deg,var(--sky-2),var(--paper));color:var(--ink);font:600 1.15rem var(--serif);letter-spacing:.04em}
+.portfolio-kicker{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:700;letter-spacing:.14em;color:var(--blue)}
+.portfolio-kicker::before{width:7px;height:7px;border-radius:50%;background:var(--blue);content:""}
+.portfolio-card h2{margin-top:8px;font-size:clamp(1.8rem,3.8vw,2.7rem)}
+.portfolio-card p{margin-top:8px;max-width:48ch}
+.portfolio-link{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:space-between;gap:18px;min-height:54px;padding:8px 9px 8px 20px;border:1px solid var(--grid);border-radius:99px;color:var(--ink);font-weight:600;text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
+.portfolio-link:hover{transform:translateY(-2px);border-color:var(--blue);background:var(--sky-2)}
+.portfolio-link-icon{display:grid;width:36px;height:36px;place-items:center;border-radius:50%;background:var(--gold);color:#15243A;font-size:1.15rem;transition:transform .2s}
+.portfolio-link:hover .portfolio-link-icon{transform:translate(2px,-2px)}
 
 :root[data-theme="dark"] header.scrolled,:root[data-theme="dark"] header.menu{background:rgba(7,24,42,.94);box-shadow:0 1px 0 rgba(255,255,255,.08)}
 :root[data-theme="dark"] .btn-ink{background:var(--gold);color:#15243A;box-shadow:0 10px 24px -10px rgba(0,0,0,.7)}
@@ -242,8 +211,6 @@ footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
 :root[data-theme="dark"] .row:hover{border-color:#6CA9D2;background:#18344F}
 :root[data-theme="dark"] .go{border-color:#38536C;background:#102239}
 :root[data-theme="dark"] .go svg{stroke:var(--ink)}
-:root[data-theme="dark"] .tabs button:hover{background:#243D57}
-:root[data-theme="dark"] .tabs button[aria-pressed=true]{background:var(--section-dark);color:#fff}
 :root[data-theme="dark"] .path .step::before{background:var(--section-dark)}
 :root[data-theme="dark"] .path .step.on::before{color:#15243A}
 :root[data-theme="dark"] .course-modal-head{background:var(--section-dark)}
@@ -283,19 +250,21 @@ footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
   .course-modal-panel{height:94vh}
   .course-modal-head{padding-left:14px}
   .booking-card{padding:26px}
-  .portfolio-card{align-items:stretch;flex-direction:column}
-  .portfolio-card .btn{width:100%}
+  .portfolio-card{grid-template-columns:1fr;gap:24px}
+  .portfolio-link{width:100%}
+}
+@media(max-width:480px){
+  .portfolio-main{align-items:flex-start;gap:16px}
+  .portfolio-mark{flex-basis:56px;border-radius:16px;font-size:1rem}
 }
 @media(min-width:861px){
   .hero-in{grid-template-columns:1.25fr .75fr}
   .path-in{grid-template-columns:.8fr 1.2fr}.path .intro{position:sticky;top:120px;align-self:start}
-  .ach-in{grid-template-columns:1fr 1fr;align-items:start;gap:90px}
-  .rev-in{grid-template-columns:1fr}
   .join-in{grid-template-columns:1fr 1fr;gap:90px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .ln,.note{opacity:1}.ul path{stroke-dashoffset:0}.step{opacity:1}.bars .b1{width:58%}.bars .b2{width:86%}
+  .ln,.note{opacity:1}.ul path{stroke-dashoffset:0}.step{opacity:1}
 }
 </style>
 <script>
@@ -319,8 +288,7 @@ footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
       <li><a href="#courses">Courses</a></li>
       <li><a class="ai-course-link" href="#course-module">AI course</a></li>
       <li><a href="#path">Learning path</a></li>
-      <li><a href="#achievements">Achievements</a></li>
-      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
       <li><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
         <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.8 8.8 0 0 1 8.9 3.8 9 9 0 1 0 20.2 15.1Z"/></svg>
         <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
@@ -448,45 +416,6 @@ footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
   </div>
 </section>
 
-<section id="achievements">
-  <div class="wrap ach-in">
-    <div class="big">
-      <div class="head"><h2>Results you can measure</h2></div>
-      <div class="num"><span class="count" data-to="94">0</span><sup>%</sup></div>
-      <p>of students raised their grade within one term.</p>
-      <div class="bars" id="bars">
-        <div class="bar">Average mark, start of term<div><i class="b1"></i></div></div>
-        <div class="bar after">Average mark, end of term<div><i class="b2"></i></div></div>
-        <small>Sample data. Replace with your own results.</small>
-      </div>
-    </div>
-    <div>
-      <div class="facts">
-        <div class="fact"><b><span class="count" data-to="640">0</span><em>+</em></b><span>students taught</span></div>
-        <div class="fact"><b><span class="count" data-to="38">0</span></b><span>scholarships won</span></div>
-        <div class="fact"><b><span class="count" data-to="12">0</span></b><span>years of teaching</span></div>
-      </div>
-      <ul class="awards" aria-label="Recognition">
-        <li>Regional science olympiad finalists</li><li>IELTS band 7 and above</li><li>SAT score gains of 150+</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="reviews" id="reviews">
-  <div class="wrap rev-in">
-    <div class="head"><h2>In their words</h2></div>
-    <div class="stage" id="stage" aria-live="polite">
-      <figure><blockquote>My son used to avoid maths homework. Now he explains each step to his sister.</blockquote><figcaption>Rahela A.<span>Parent of a grade 10 student</span></figcaption></figure>
-      <figure hidden><blockquote>The monthly notes told me exactly what to practise. I stopped guessing before exams.</blockquote><figcaption>Tanvir H.<span>Grade 12 student</span></figcaption></figure>
-      <figure hidden><blockquote>Small classes make the difference. Teachers know my daughter by name and by how she thinks.</blockquote><figcaption>Sabrina K.<span>Parent of a grade 9 student</span></figcaption></figure>
-    </div>
-    <div class="tabs" id="tabs" role="group" aria-label="Choose a review">
-      <button aria-pressed="true">Rahela, parent</button><button aria-pressed="false">Tanvir, student</button><button aria-pressed="false">Sabrina, parent</button>
-    </div>
-  </div>
-</section>
-
 <section class="join gridbg" id="join">
   <div class="wrap join-in">
     <div class="l">
@@ -503,15 +432,18 @@ footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
 </section>
 </main>
 
-<section class="portfolio-band" aria-labelledby="portfolio-title">
+<section class="portfolio-band" id="portfolio" aria-labelledby="portfolio-title">
   <div class="wrap">
     <div class="portfolio-card">
-      <div>
-        <span class="portfolio-kicker">INSTRUCTOR</span>
-        <h2 id="portfolio-title">Meet your instructor</h2>
-        <p>Explore Arif Ishtiaq Emon's background, skills, and projects.</p>
+      <div class="portfolio-main">
+        <span class="portfolio-mark" aria-hidden="true">AIE</span>
+        <div>
+          <span class="portfolio-kicker">AI COURSE INSTRUCTOR</span>
+          <h2 id="portfolio-title">Arif Ishtiaq Emon</h2>
+          <p>Background, skills, and selected projects.</p>
+        </div>
       </div>
-      <a class="btn btn-ink" href="https://ishtiark.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">View instructor portfolio <span aria-hidden="true">↗</span></a>
+      <a class="portfolio-link" href="https://ishtiark.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">View portfolio <span class="portfolio-link-icon" aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
@@ -519,7 +451,7 @@ footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
 <footer>
   <div class="wrap foot">
     <a class="logo" href="#top">Brightmind Academy</a>
-    <nav aria-label="Footer"><a href="#courses">Courses</a><a href="#course-module">AI course</a><a href="#path">Learning path</a><a href="#achievements">Achievements</a><a href="#reviews">Reviews</a></nav>
+    <nav aria-label="Footer"><a href="#courses">Courses</a><a href="#course-module">AI course</a><a href="#path">Learning path</a><a href="#portfolio">Portfolio</a></nav>
     <p>© 2026 Brightmind Academy</p>
   </div>
 </footer>
@@ -527,7 +459,6 @@ footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
 <script>
 (()=>{
   const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
-  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
   const header=$('header'),burger=$('.burger'),menu=$('#menu');
   const themeToggle=$('#theme-toggle'),themeLabel=$('#theme-label');
   const updateThemeToggle=()=>{
@@ -551,18 +482,6 @@ footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
   burger.addEventListener('click',()=>setMenu(!menu.classList.contains('open')));
   $$('a',menu).forEach(a=>a.addEventListener('click',()=>setMenu(false)));
   addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
-
-  // counters + bars
-  const io=new IntersectionObserver(es=>es.forEach(e=>{
-    if(!e.isIntersecting)return;io.unobserve(e.target);const n=e.target;
-    if(n.id==='bars'){n.classList.add('in');return}
-    const to=+n.dataset.to;
-    if(reduce){n.textContent=to;return}
-    const t0=performance.now();
-    const tick=t=>{const p=Math.min((t-t0)/1500,1);n.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)};
-    requestAnimationFrame(tick);
-  }),{threshold:.5});
-  $$('.count,#bars').forEach(n=>io.observe(n));
 
   // learning path
   const steps=$('#steps'),fill=$('#fill'),items=$$('.step');
@@ -610,13 +529,6 @@ footer{background:var(--section-dark);color:#B5CBDE;padding:56px 0}
   $('.course-modal-close').addEventListener('click',closeModal);
   modal.addEventListener('click',event=>{if(event.target===modal)closeModal()});
   addEventListener('keydown',event=>{if(event.key==='Escape'&&modal.classList.contains('open'))closeModal()});
-
-  // reviews
-  const figs=$$('#stage figure'),tabs=$$('#tabs button');
-  tabs.forEach((b,i)=>b.addEventListener('click',()=>{
-    figs.forEach((f,j)=>f.hidden=i!==j);
-    tabs.forEach((t,j)=>t.setAttribute('aria-pressed',i===j));
-  }));
 
 })();
 </script>
